@@ -6,7 +6,8 @@
     "develop": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "update:types": "cd ../backend && npx strapi-generate-types generate && cp models/types.ts ../frontend/utils/@types"
   },
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",

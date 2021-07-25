@@ -1,12 +1,8 @@
 import Image from "next/image";
-import PropTypes from "prop-types";
 import { getStrapiMedia } from "../../utils/media";
-import { mediaPropTypes } from "../../utils/types";
 
 // @ts-ignore
 const NextImage = ({ media, ...props }) => {
-  const { url, alternativeText } = media;
-
   // @ts-ignore
   const loader = ({ src }) => {
     return getStrapiMedia(src);
@@ -16,7 +12,16 @@ const NextImage = ({ media, ...props }) => {
   if (props.width && props.height) {
     return (
       // @ts-ignore
-      <Image loader={loader} src={url} alt={alternativeText || ""} {...props} />
+      <Image
+        // @ts-ignore
+        loader={loader}
+        src={
+          media?.url ||
+          "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+        }
+        alt={media?.alternativeText || ""}
+        {...props}
+      />
     );
   }
 
@@ -26,11 +31,11 @@ const NextImage = ({ media, ...props }) => {
       // @ts-ignore
       loader={loader}
       layout="responsive"
-      width={media.width}
-      height={media.height}
+      width={media?.width || 100}
+      height={media?.height || 100}
       objectFit="contain"
-      src={url}
-      alt={alternativeText || ""}
+      src={media?.url}
+      alt={media?.alternativeText || ""}
     />
   );
 };

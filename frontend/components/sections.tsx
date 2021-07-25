@@ -4,7 +4,6 @@ import FeatureRowsGroup from "../components/sections/feature-rows-group";
 import Hero from "../components/sections/hero";
 import LargeVideo from "../components/sections/large-video";
 import LeadForm from "./sections/lead-form";
-import Pricing from "./sections/pricing";
 import RichText from "./sections/rich-text";
 import TestimonialsGroup from "../components/sections/testimonials-group";
 import { useRouter } from "next/router";
@@ -18,7 +17,6 @@ const sectionComponents = {
   "sections.bottom-actions": BottomActions,
   "sections.testimonials-group": TestimonialsGroup,
   "sections.rich-text": RichText,
-  "sections.pricing": Pricing,
   "sections.lead-form": LeadForm,
 };
 

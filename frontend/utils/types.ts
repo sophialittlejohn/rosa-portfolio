@@ -25,6 +25,7 @@ export type Locales = "en";
 
 export type NextPageContextWithStrapi = NextPageContext & {
   locales: Locales[];
+  locale: Locales;
   params: Record<any, any>;
   preview: boolean;
   localizations: any[];

@@ -1,11 +1,12 @@
-import { linkPropTypes, mediaPropTypes } from "../../utils/types";
-
+import { ComponentLayoutFooter } from "../../utils/@types/strapi";
 import CustomLink from "./custom-link";
 import NextImage from "./image";
-import PropTypes from "prop-types";
 
-// @ts-ignore
-const Footer = ({ footer }) => {
+type FooterProps = {
+  footer: ComponentLayoutFooter;
+};
+
+const Footer = ({ footer }: FooterProps) => {
   return (
     <footer className="pt-12 bg-gray-100">
       <div className="container flex flex-col lg:flex-row lg:justify-between">
@@ -18,20 +19,20 @@ const Footer = ({ footer }) => {
           {/*  @ts-ignore */}
           {footer.columns.map((footerColumn) => (
             <div
-              key={footerColumn.id}
+              key={footerColumn?.id}
               className="mt-10 lg:mt-0 w-6/12 lg:w-auto"
             >
               <p className="uppercase tracking-wide font-semibold">
-                {footerColumn.title}
+                {footerColumn?.title}
               </p>
               <ul className="mt-2">
                 {/*  @ts-ignore */}
                 {footerColumn.links.map((link) => (
                   <li
-                    key={link.id}
+                    key={link?.id}
                     className="text-gray-700 py-1 px-1 -mx-1 hover:text-gray-900"
                   >
-                    <CustomLink link={link}>{link.text}</CustomLink>
+                    {link && <CustomLink link={link}>{link?.text}</CustomLink>}
                   </li>
                 ))}
               </ul>
@@ -44,21 +45,6 @@ const Footer = ({ footer }) => {
       </div>
     </footer>
   );
-};
-
-Footer.propTypes = {
-  footer: PropTypes.shape({
-    logo: mediaPropTypes.isRequired,
-    columns: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-          .isRequired,
-        title: PropTypes.string.isRequired,
-        links: PropTypes.arrayOf(linkPropTypes),
-      })
-    ),
-    smallText: PropTypes.string.isRequired,
-  }),
 };
 
 export default Footer;

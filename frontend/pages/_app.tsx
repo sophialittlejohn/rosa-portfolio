@@ -32,9 +32,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <DefaultSeo
         titleTemplate={`%s | ${global.metaTitleSuffix}`}
         title="Page"
-        description={metadata.metaDescription}
+        description={metadata?.metaDescription}
         openGraph={{
-          images: Object.values(metadata.shareImage.formats).map(
+          images: Object.values(metadata?.shareImage.formats || []).map(
             (image: any) => {
               return {
                 url: getStrapiMedia(image.url),

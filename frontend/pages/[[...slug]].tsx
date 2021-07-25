@@ -1,12 +1,25 @@
-import { Locales, NextPageContextWithStrapi } from "../utils/types";
+import {
+  ComponentMetaMetadata,
+  Global,
+  PageContentSectionsDynamicZone,
+} from "../utils/@types/strapi";
 import { fetchAPI, getGlobalData, getPageData } from "../utils/api";
 
 import ErrorPage from "next/error";
 import Layout from "../components/layout";
+import { NextPageContextWithStrapi } from "../utils/types";
 import Sections from "../components/sections";
 import Seo from "../components/elements/seo";
 import { getLocalizedPaths } from "../utils/localize";
 import { useRouter } from "next/router";
+
+type DynamicPageProps = {
+  sections?: PageContentSectionsDynamicZone[];
+  metadata?: ComponentMetaMetadata;
+  preview?: boolean;
+  global: Global;
+  pageContext: NextPageContextWithStrapi;
+};
 
 // The file is called [[...slug]].js because we're using Next's
 // optional catch all routes feature. See the related docs:
@@ -18,7 +31,7 @@ const DynamicPage = ({
   preview,
   global,
   pageContext,
-}: any) => {
+}: DynamicPageProps) => {
   const router = useRouter();
 
   // Check if the required data was provided
@@ -32,9 +45,9 @@ const DynamicPage = ({
   }
 
   return (
-    <Layout global={global} pageContext={pageContext}>
+    <Layout global={global}>
       {/* Add meta tags for SEO*/}
-      <Seo metadata={metadata} />
+      {metadata && <Seo metadata={metadata} />}
       {/* Display content sections */}
       <Sections sections={sections} preview={preview} />
     </Layout>
@@ -65,12 +78,12 @@ export async function getStaticPaths(context: NextPageContextWithStrapi) {
 }
 
 export async function getStaticProps(context: NextPageContextWithStrapi) {
-  const { params, locale, locales, defaultLocale, preview = null } = context;
+  const { params, locale, locales, defaultLocale, preview = false } = context;
 
   const globalLocale = await getGlobalData(locale);
   // Fetch pages. Include drafts if preview mode is on
   const pageData = await getPageData(
-    { slug: !params.slug ? [""] : params.slug },
+    { slug: !params.slug ? ["/"] : params.slug },
     locale,
     preview
   );
