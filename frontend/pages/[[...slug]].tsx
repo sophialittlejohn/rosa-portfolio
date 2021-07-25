@@ -45,7 +45,10 @@ const DynamicPage = ({
   }
 
   return (
-    <Layout global={global}>
+    <Layout
+      global={global}
+      configuration={{ pageColor: pageContext.pageColor }}
+    >
       {/* Add meta tags for SEO*/}
       {metadata && <Seo metadata={metadata} />}
       {/* Display content sections */}
@@ -87,6 +90,7 @@ export async function getStaticProps(context: NextPageContextWithStrapi) {
     locale,
     preview
   );
+  console.log("➜ ~ pageData", pageData);
 
   if (pageData == null) {
     // Giving the page no props will trigger a 404 page
@@ -94,7 +98,8 @@ export async function getStaticProps(context: NextPageContextWithStrapi) {
   }
 
   // We have the required page data, pass it to the page component
-  const { contentSections, metadata, localizations, slug } = pageData;
+  const { contentSections, metadata, localizations, slug, pageColor } =
+    pageData;
 
   const pageContext = {
     locale: pageData.locale,
@@ -102,6 +107,7 @@ export async function getStaticProps(context: NextPageContextWithStrapi) {
     defaultLocale,
     slug,
     localizations,
+    pageColor,
   };
 
   const localizedPaths = getLocalizedPaths(pageContext);

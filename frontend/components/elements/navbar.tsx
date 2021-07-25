@@ -10,7 +10,6 @@ const Navbar = ({ navbar }: NavBarProps) => {
     <nav>
       <ul className="flex content-center w-full justify-center pt-7 mb-10 md:mb-20">
         {navbar?.links?.map((navLink) => {
-          console.log("navLink", navLink);
           return (
             <li key={`${navLink?.id}${Math.random()}`}>
               {navLink && (
