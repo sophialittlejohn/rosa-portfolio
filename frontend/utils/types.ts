@@ -30,5 +30,6 @@ export type NextPageContextWithStrapi = NextPageContext & {
   preview: boolean;
   localizations: any[];
   localizedPaths: string[];
-  pageColor?: string;
+  pageColor?: "light" | "dark";
+  layout?: "horizontal" | "vertical";
 };

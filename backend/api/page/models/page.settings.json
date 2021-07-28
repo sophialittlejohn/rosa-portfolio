@@ -47,7 +47,7 @@
         "sections.rich-text",
         "sections.pricing",
         "sections.lead-form",
-        "elements.content"
+        "sections.image"
       ],
       "pluginOptions": {
         "i18n": {
@@ -89,6 +89,19 @@
         "light",
         "dark"
       ]
+    },
+    "layout": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ],
+      "default": "vertical"
     }
   }
 }

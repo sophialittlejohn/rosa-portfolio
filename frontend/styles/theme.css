@@ -1,0 +1,8 @@
+@tailwind base;
+
+@layer base {
+  :root {
+    --color-lightGray: #eeeeee;
+    --color-blackish: #3e3025;
+  }
+}

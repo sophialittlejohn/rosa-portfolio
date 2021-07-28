@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css";
+import "../styles/theme.css";
 
 import App, { AppContext } from "next/app";
 

@@ -1,19 +1,21 @@
+import { ComponentSectionsRichText } from "../../utils/@types/strapi";
 import Markdown from "react-markdown";
-import PropTypes from "prop-types";
 
-// @ts-ignore
-const RichText = ({ data }) => {
-  return (
-    <div className="prose prose-lg container py-12">
-      <Markdown source={data.content} />
-    </div>
-  );
+type RichTextProps = {
+  data: ComponentSectionsRichText;
 };
 
-RichText.propTypes = {
-  data: PropTypes.shape({
-    content: PropTypes.string,
-  }),
+const RichText = ({ data }: RichTextProps) => {
+  const textAlignment =
+    data.alignment === "center" ? "text-center" : "text-left";
+
+  return (
+    <section
+      className={`prose lg:prose-lg container py-12 w-3/4 mx-auto ${textAlignment}`}
+    >
+      {data?.content && <Markdown source={data.content} />}
+    </section>
+  );
 };
 
 export default RichText;

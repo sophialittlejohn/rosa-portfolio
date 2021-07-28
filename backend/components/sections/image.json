@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sections_images",
+  "info": {
+    "name": "Image",
+    "icon": "blind",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "alt": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

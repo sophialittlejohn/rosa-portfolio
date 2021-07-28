@@ -2,10 +2,13 @@ import BottomActions from "../components/sections/bottom-actions";
 import FeatureColumnsGroup from "../components/sections/feature-columns-group";
 import FeatureRowsGroup from "../components/sections/feature-rows-group";
 import Hero from "../components/sections/hero";
+import ImageSection from "./sections/image";
 import LargeVideo from "../components/sections/large-video";
 import LeadForm from "./sections/lead-form";
+import { PageContentSectionsDynamicZone } from "../utils/@types/strapi";
 import RichText from "./sections/rich-text";
 import TestimonialsGroup from "../components/sections/testimonials-group";
+import classNames from "classnames";
 import { useRouter } from "next/router";
 
 // Map Strapi sections to section components
@@ -18,6 +21,7 @@ const sectionComponents = {
   "sections.testimonials-group": TestimonialsGroup,
   "sections.rich-text": RichText,
   "sections.lead-form": LeadForm,
+  "sections.image": ImageSection,
 };
 
 // Display a section individually
@@ -42,7 +46,7 @@ const PreviewModeBanner = () => {
   )}`;
 
   return (
-    <div className="py-4 bg-red-600 text-red-100 font-semibold uppercase tracking-wide">
+    <section className="py-4 bg-red-600 text-red-100 font-semibold uppercase tracking-wide">
       <div className="container">
         Preview mode is on.{" "}
         <a
@@ -52,15 +56,26 @@ const PreviewModeBanner = () => {
           Turn off
         </a>
       </div>
-    </div>
+    </section>
   );
 };
 
+type SectionsProps = {
+  sections: PageContentSectionsDynamicZone[];
+  preview: boolean;
+  layout?: "horizontal" | "vertical";
+};
+
 // Display the list of sections
-// @ts-ignore
-const Sections = ({ sections, preview }) => {
+const Sections = ({ sections, preview, layout }: SectionsProps) => {
+  const flexDirection = layout === "horizontal" ? "md:flex-row" : "";
   return (
-    <div className="flex flex-col">
+    <main
+      className={classNames(
+        "flex flex-col items-center content-center md:space-x-20",
+        flexDirection
+      )}
+    >
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}
@@ -68,10 +83,11 @@ const Sections = ({ sections, preview }) => {
       {sections.map((section) => (
         <Section
           sectionData={section}
+          // @ts-ignore
           key={`${section.__component}${section.id}`}
         />
       ))}
-    </div>
+    </main>
   );
 };
 
