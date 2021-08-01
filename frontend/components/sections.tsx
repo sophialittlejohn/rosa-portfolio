@@ -26,7 +26,7 @@ const sectionComponents = {
 
 // Display a section individually
 // @ts-ignore
-const Section = ({ sectionData }) => {
+const Section = ({ sectionData, pageColor }) => {
   // Prepare the component
   // @ts-ignore
   const SectionComponent = sectionComponents[sectionData.__component];
@@ -36,7 +36,7 @@ const Section = ({ sectionData }) => {
   }
 
   // Display the section
-  return <SectionComponent data={sectionData} />;
+  return <SectionComponent data={sectionData} pageColor={pageColor} />;
 };
 
 const PreviewModeBanner = () => {
@@ -64,10 +64,11 @@ type SectionsProps = {
   sections: PageContentSectionsDynamicZone[];
   preview: boolean;
   layout?: "horizontal" | "vertical";
+  pageColor?: string;
 };
 
 // Display the list of sections
-const Sections = ({ sections, preview, layout }: SectionsProps) => {
+const Sections = ({ sections, preview, layout, pageColor }: SectionsProps) => {
   const flexDirection =
     layout === "horizontal" ? "md:flex-row md:space-x-20" : "";
   return (
@@ -86,6 +87,7 @@ const Sections = ({ sections, preview, layout }: SectionsProps) => {
           sectionData={section}
           // @ts-ignore
           key={`${section.__component}${section.id}`}
+          pageColor={pageColor}
         />
       ))}
     </main>

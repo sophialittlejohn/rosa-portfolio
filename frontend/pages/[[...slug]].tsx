@@ -56,6 +56,7 @@ const DynamicPage = ({
         layout={pageContext.layout}
         sections={sections}
         preview={preview}
+        pageColor={pageContext.pageColor}
       />
     </Layout>
   );
