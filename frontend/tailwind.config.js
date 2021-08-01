@@ -42,7 +42,7 @@ module.exports = {
         },
         dark: {
           css: {
-            p: {
+            DEFAULT: {
               textColor: "#FFFFFF",
             }
           }
