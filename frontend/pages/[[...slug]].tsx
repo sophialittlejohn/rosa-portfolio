@@ -32,7 +32,6 @@ const DynamicPage = ({
   global,
   pageContext,
 }: DynamicPageProps) => {
-  console.log("➜ ~ sections", sections);
   const router = useRouter();
 
   // Check if the required data was provided

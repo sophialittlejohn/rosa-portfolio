@@ -68,11 +68,12 @@ type SectionsProps = {
 
 // Display the list of sections
 const Sections = ({ sections, preview, layout }: SectionsProps) => {
-  const flexDirection = layout === "horizontal" ? "md:flex-row" : "";
+  const flexDirection =
+    layout === "horizontal" ? "md:flex-row md:space-x-20" : "";
   return (
     <main
       className={classNames(
-        "flex flex-col items-center content-center md:space-x-20",
+        "flex flex-col items-center content-center",
         flexDirection
       )}
     >

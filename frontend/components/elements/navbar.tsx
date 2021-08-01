@@ -10,17 +10,18 @@ const Navbar = ({ navbar }: NavBarProps) => {
     <nav>
       <ul className="flex content-center w-full justify-center pt-7 mb-10 md:mb-20">
         {navbar?.links?.map((navLink) => {
-          return (
-            <li key={`${navLink?.id}${Math.random()}`}>
-              {navLink && (
-                <CustomLink link={navLink}>
-                  <div className="text-lg md:text-2xl mx-3 uppercase">
-                    {navLink?.text}
-                  </div>
-                </CustomLink>
-              )}
-            </li>
-          );
+          if (navLink?.url !== "/")
+            return (
+              <li key={`${navLink?.id}${Math.random()}`}>
+                {navLink && (
+                  <CustomLink link={navLink}>
+                    <div className="text-lg md:text-2xl mx-3 uppercase">
+                      {navLink?.text}
+                    </div>
+                  </CustomLink>
+                )}
+              </li>
+            );
         })}
       </ul>
     </nav>

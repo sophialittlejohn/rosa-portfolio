@@ -1,54 +1,28 @@
-import CustomLink from "../elements/custom-link";
+import Link from "next/link";
 import NextImage from "../elements/image";
-import Video from "../elements/video";
-import classNames from "classnames";
 
 // @ts-ignore
 const FeatureRowsGroup = ({ data }) => {
   return (
-    <div className="container flex flex-col gap-12 py-12">
+    <div className="flex flex-col md:flex-row gap-12 md:gap-0 py-12 md:py-0">
       {/* @ts-ignore */}
-      {data.features.map((feature, index) => (
-        <div
-          className={classNames(
-            // Common classes
-            "flex flex-col justify-start md:justify-between md:items-center gap-10",
-            {
-              "lg:flex-row": index % 2 === 0,
-              "lg:flex-row-reverse": index % 2 === 1,
-            }
-          )}
-          key={feature.id}
-        >
-          {/* Text section */}
-          <div className="w-full lg:w-6/12 lg:pr-6 text-lg">
-            <h3 className="title">{feature?.title || "TITLE"}</h3>
-            <p className="my-6">{feature?.description || "DESCRIPTION"}</p>
-            <CustomLink link={feature?.link}>
-              <div className="text-blue-600 with-arrow hover:underline">
-                {feature?.link?.text || "LINK TEXT"}
+      {data.features.map((feature) => (
+        <Link href={feature?.link.url}>
+          <div
+            className={"flex flex-col items-center px-10 sm:px-20"}
+            key={feature.id}
+          >
+            <div className="w-full lg:w-6/12 text-lg">
+              <div className="w-full h-auto max-h-full">
+                <NextImage media={feature.media} height={500} width={500} />
               </div>
-            </CustomLink>
+            </div>
+            <div className="text-center">
+              <h3 className="text">{feature?.title || "TITLE"}</h3>
+              <p className="">{feature?.description || "DESCRIPTION"}</p>
+            </div>
           </div>
-          {/* Media section */}
-          <div className="w-full sm:9/12 lg:w-4/12 max-h-full">
-            {/* Images */}
-            {feature.media.mime.startsWith("image") && (
-              <div className="w-full h-auto">
-                <NextImage media={feature.media} />
-              </div>
-            )}
-            {/* Videos */}
-            {feature.media.mime.startsWith("video") && (
-              <Video
-                media={feature.media}
-                className="w-full h-auto"
-                autoPlay
-                controls={false}
-              />
-            )}
-          </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
