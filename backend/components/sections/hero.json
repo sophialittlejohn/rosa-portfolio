@@ -10,12 +10,6 @@
     "title": {
       "type": "string"
     },
-    "label": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
     "picture": {
       "model": "file",
       "via": "related",
@@ -25,11 +19,6 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
-    },
-    "buttons": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.button-link"
     }
   }
 }

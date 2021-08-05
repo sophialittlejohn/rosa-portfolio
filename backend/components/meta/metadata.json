@@ -2,7 +2,8 @@
   "collectionName": "components_meta_metadata",
   "info": {
     "name": "Metadata",
-    "icon": "robot"
+    "icon": "robot",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -21,20 +22,8 @@
         "images"
       ],
       "plugin": "upload",
-      "required": false
-    },
-    "twitterCardType": {
-      "type": "enumeration",
-      "enum": [
-        "summary",
-        "summary_large_image",
-        "app",
-        "player"
-      ],
-      "default": "summary"
-    },
-    "twitterUsername": {
-      "type": "string"
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

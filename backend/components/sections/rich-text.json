@@ -17,6 +17,10 @@
         "center"
       ],
       "default": "left"
+    },
+    "fullscreen": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

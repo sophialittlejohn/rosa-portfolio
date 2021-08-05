@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_elements_galleries",
+  "info": {
+    "name": "Gallery",
+    "icon": "braille",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "title": {
+      "type": "string"
+    },
+    "fullscreen": {
+      "type": "boolean",
+      "default": false
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  }
+}
