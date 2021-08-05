@@ -1,6 +1,7 @@
 import BottomActions from "../components/sections/bottom-actions";
 import FeatureColumnsGroup from "../components/sections/feature-columns-group";
 import FeatureRowsGroup from "../components/sections/feature-rows-group";
+import { Gallery } from "./sections/gallery";
 import Hero from "../components/sections/hero";
 import ImageSection from "./sections/image";
 import LargeVideo from "../components/sections/large-video";
@@ -22,6 +23,7 @@ const sectionComponents = {
   "sections.rich-text": RichText,
   "sections.lead-form": LeadForm,
   "sections.image": ImageSection,
+  "sections.gallery": Gallery,
 };
 
 // Display a section individually
@@ -71,17 +73,21 @@ type SectionsProps = {
 const Sections = ({ sections, preview, layout, pageColor }: SectionsProps) => {
   const flexDirection =
     layout === "horizontal" ? "md:flex-row md:space-x-20" : "";
+
+  const { asPath } = useRouter();
+  const fullscreen = !!asPath.includes("work/");
+
   return (
     <main
       className={classNames(
         "flex flex-col items-center content-center",
-        flexDirection
+        flexDirection,
+        { "h-full": fullscreen }
       )}
     >
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}
       {/* Show the actual sections */}
-      {/* @ts-ignore */}
       {sections.map((section) => (
         <Section
           sectionData={section}

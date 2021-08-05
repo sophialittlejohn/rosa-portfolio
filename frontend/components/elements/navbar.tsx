@@ -10,8 +10,8 @@ type NavBarProps = {
 const Navbar = ({ navbar }: NavBarProps) => {
   const { asPath } = useRouter();
   return (
-    <nav>
-      <ul className="flex content-center w-full justify-center pt-7 mb-10 md:mb-20">
+    <nav className="max-w-screen-xl">
+      <ul className="flex content-center justify-center pt-7 sm:pt-14 mb-10 md:mb-20">
         {navbar?.links?.map((navLink) => {
           if (navLink?.url !== "/")
             return (
@@ -20,8 +20,8 @@ const Navbar = ({ navbar }: NavBarProps) => {
                   <CustomLink link={navLink}>
                     <div
                       className={classNames(
-                        "text-lg md:text-2xl mx-3 uppercase",
-                        { "font-black": asPath?.includes(navLink?.url || "") }
+                        "text-lg md:text-2xl mx-4 uppercase",
+                        { "font-bold": asPath?.includes(navLink?.url || "") }
                       )}
                     >
                       {navLink?.text}

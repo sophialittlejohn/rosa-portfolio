@@ -11,15 +11,17 @@ const RichText = ({ data, pageColor }: RichTextProps) => {
   return (
     <section
       className={classNames(
-        `dark:prose lg:prose-lg container py-12 w-3/4 mx-auto`,
+        `prose-sm lg:prose-lg py-12 w-3/4 mx-auto`,
         { "text-center": data.alignment === "center" },
         { "dark:prose": pageColor === "dark" },
-        { prose: pageColor === "light" }
+        { prose: pageColor === "light" },
+        {
+          "h-fullscreen flex items-center flex-col justify-center pb-28":
+            data.fullscreen,
+        }
       )}
     >
-      {data?.content && (
-        <Markdown source={data.content} className={classNames()} />
-      )}
+      {data?.content && <Markdown source={data.content} />}
     </section>
   );
 };

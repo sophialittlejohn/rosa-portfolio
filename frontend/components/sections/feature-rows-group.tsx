@@ -1,29 +1,32 @@
-import Link from "next/link";
-import NextImage from "../elements/image";
+import CustomLink from "../elements/custom-link";
+import { NextImage } from "../elements/image";
 
 // @ts-ignore
 const FeatureRowsGroup = ({ data }) => {
   return (
-    <div className="flex flex-col md:flex-row gap-12 md:gap-0 py-12 md:py-0">
+    <div className="flex flex-col items-center justify-evenly w-full md:flex-row gap-12 md:gap-0 py-12 md:py-0 sm:mb-40">
       {/* @ts-ignore */}
-      {data.features.map((feature) => (
-        <Link href={feature?.link.url}>
-          <div
-            className={"flex flex-col items-center px-10 sm:px-20"}
-            key={feature.id}
-          >
-            <div className="w-full lg:w-6/12 text-lg">
-              <div className="w-full h-auto max-h-full">
-                <NextImage media={feature.media} height={500} width={500} />
+      {data.features.map((feature) => {
+        console.log("➜ ~ feature", feature);
+        return (
+          <CustomLink link={feature?.link}>
+            <div
+              className={"flex flex-col items-center px-10 sm:px-0"}
+              key={feature.id}
+            >
+              <div className="h-56 w-56">
+                <NextImage media={feature.media} />
+              </div>
+              <div className="text-center mt-10">
+                <h3 className="text italic">{feature?.title || "TITLE"}</h3>
+                <p className="uppercase">
+                  {feature?.description || "DESCRIPTION"}
+                </p>
               </div>
             </div>
-            <div className="text-center">
-              <h3 className="text">{feature?.title || "TITLE"}</h3>
-              <p className="">{feature?.description || "DESCRIPTION"}</p>
-            </div>
-          </div>
-        </Link>
-      ))}
+          </CustomLink>
+        );
+      })}
     </div>
   );
 };

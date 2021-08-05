@@ -12,6 +12,12 @@ module.exports = {
         primaryA: "var(--color-lightGray)",
         primaryB: "var(--color-blackish)",
       },
+      height: {
+        fullscreen: "75vh"
+      },
+      width: {
+        xxxl: "800px"
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -24,10 +30,14 @@ module.exports = {
           css: {
             p: {
               fontWeight: "normal",
-              fontSize: "14px",
-              lineHeight: "16px",
+              fontSize: "20px",
+              lineHeight: "24px",
               letterSpacing: "0.08em",
             },
+            h1: {
+              marginBottom: "0px",
+              backgroundColor: "pink"
+            }
           },
         },
         lg: {
@@ -37,9 +47,13 @@ module.exports = {
               fontSize: "20px",
               lineHeight: "24px",
               letterSpacing: "0.08em",
+            },
+            h1: {
+              marginBottom: "1rem",
             }
           }
         },
+
         dark: {
           css: {
             DEFAULT: {
