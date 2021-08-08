@@ -28,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
         {navbar && <Navbar navbar={navbar} />}
         {children}
         {/* Aligned to the bottom */}
-        {footer && <Footer footer={footer} />}
+        {footer && <Footer footer={footer} configuration={configuration} />}
       </div>
     </div>
   );

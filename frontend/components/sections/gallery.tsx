@@ -4,15 +4,23 @@ import { NextImage } from "../elements/image";
 type GalleryProps = { data: ComponentSectionsGallery };
 
 export const Gallery = ({ data }: GalleryProps) => {
-  console.log("➜ ~ data", data);
   return (
-    <section className="">
-      {data?.title && <h2>{data.title}</h2>}
-      {data?.subtitle && <h3>{data.subtitle}</h3>}
+    <section className="text-center pb-28">
+      <div className="prose mx-auto mb-8">
+        {data?.title && <h2>{data.title}</h2>}
+        {data?.subtitle && <h3>{data.subtitle}</h3>}
+      </div>
       {data?.images &&
         data.images.map((image) => {
-          return <NextImage media={image} />;
+          return (
+            <div className="w-screen">
+              <NextImage media={image} />
+            </div>
+          );
         })}
+      {data?.caption && (
+        <p className="font-light text-xl mt-8">{data.caption}</p>
+      )}
     </section>
   );
 };
