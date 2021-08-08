@@ -13,7 +13,7 @@ module.exports = {
         primaryB: "var(--color-blackish)",
       },
       height: {
-        fullscreen: "75vh"
+        fullscreen: "75vh" // not 100 to make next element visible in viewport
       },
       width: {
         xxxl: "800px"
@@ -23,6 +23,18 @@ module.exports = {
           css: {
             p: {
               color: "initial"
+            },
+            h2: {
+              fontSize: "24px",
+              fontWeight: "400",
+              lineHeight: "36px",
+              marginBottom: "8px",
+            },
+            h3: {
+              fontSize: "24px",
+              fontWeight: "300",
+              lineHeight: "36px",
+              marginBottom: "20px",
             }
           }
         },
@@ -36,7 +48,6 @@ module.exports = {
             },
             h1: {
               marginBottom: "0px",
-              backgroundColor: "pink"
             }
           },
         },
@@ -57,7 +68,7 @@ module.exports = {
         dark: {
           css: {
             DEFAULT: {
-              textColor: "#FFFFFF",
+              textColor: "var(--color-primaryB)",
             }
           }
         }

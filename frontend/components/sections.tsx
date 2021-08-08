@@ -80,7 +80,7 @@ const Sections = ({ sections, preview, layout, pageColor }: SectionsProps) => {
   return (
     <main
       className={classNames(
-        "flex flex-col items-center content-center",
+        "flex flex-col items-center content-center space-y-10",
         flexDirection,
         { "h-full": fullscreen }
       )}
