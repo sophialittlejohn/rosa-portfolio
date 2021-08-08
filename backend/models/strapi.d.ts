@@ -266,7 +266,7 @@ export enum Enum_Page_Layout {
   Vertical = 'vertical'
 }
 
-export type PageContentSectionsDynamicZone = ComponentSectionsHero | ComponentSectionsFeatureColumnsGroup | ComponentSectionsFeatureRowsGroup | ComponentSectionsRichText | ComponentSectionsLeadForm | ComponentSectionsImage | ComponentSectionsGallery | ComponentSectionsGalleryFullscreen;
+export type PageContentSectionsDynamicZone = ComponentSectionsHero | ComponentSectionsFeatureColumnsGroup | ComponentSectionsFeatureRowsGroup | ComponentSectionsRichText | ComponentSectionsLeadForm | ComponentSectionsImage | ComponentSectionsGallery;
 
 
 export type Page = {
@@ -1343,41 +1343,13 @@ export type EditComponentSectionsFeatureRowsGroupInput = {
   features?: Maybe<Array<Maybe<EditComponentElementsFeatureRowInput>>>;
 };
 
-export type ComponentSectionsGalleryFullscreen = {
-  __typename?: 'ComponentSectionsGalleryFullscreen';
-  id: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<Scalars['String']>;
-  pictures?: Maybe<Array<Maybe<UploadFile>>>;
-};
-
-
-export type ComponentSectionsGalleryFullscreenPicturesArgs = {
-  sort?: Maybe<Scalars['String']>;
-  limit?: Maybe<Scalars['Int']>;
-  start?: Maybe<Scalars['Int']>;
-  where?: Maybe<Scalars['JSON']>;
-};
-
-export type ComponentSectionsGalleryFullscreenInput = {
-  pictures?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<Scalars['String']>;
-};
-
-export type EditComponentSectionsGalleryFullscreenInput = {
-  id?: Maybe<Scalars['ID']>;
-  pictures?: Maybe<Array<Maybe<Scalars['ID']>>>;
-  title?: Maybe<Scalars['String']>;
-  subtitle?: Maybe<Scalars['String']>;
-};
-
 export type ComponentSectionsGallery = {
   __typename?: 'ComponentSectionsGallery';
   id: Scalars['ID'];
   title?: Maybe<Scalars['String']>;
   fullscreen?: Maybe<Scalars['Boolean']>;
   subtitle?: Maybe<Scalars['String']>;
+  caption?: Maybe<Scalars['String']>;
   images?: Maybe<Array<Maybe<UploadFile>>>;
 };
 
@@ -1394,6 +1366,7 @@ export type ComponentSectionsGalleryInput = {
   title?: Maybe<Scalars['String']>;
   fullscreen?: Maybe<Scalars['Boolean']>;
   subtitle?: Maybe<Scalars['String']>;
+  caption?: Maybe<Scalars['String']>;
 };
 
 export type EditComponentSectionsGalleryInput = {
@@ -1402,6 +1375,7 @@ export type EditComponentSectionsGalleryInput = {
   title?: Maybe<Scalars['String']>;
   fullscreen?: Maybe<Scalars['Boolean']>;
   subtitle?: Maybe<Scalars['String']>;
+  caption?: Maybe<Scalars['String']>;
 };
 
 export type ComponentSectionsHero = {
@@ -1562,7 +1536,7 @@ export type EditComponentSectionsTestimonialsGroupInput = {
   testimonials?: Maybe<Array<Maybe<EditComponentElementsTestimonialInput>>>;
 };
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Global | UpdateGlobalPayload | DeleteGlobalPayload | LeadFormSubmissions | LeadFormSubmissionsConnection | LeadFormSubmissionsAggregator | LeadFormSubmissionsGroupBy | LeadFormSubmissionsConnectionId | LeadFormSubmissionsConnectionCreated_At | LeadFormSubmissionsConnectionUpdated_At | LeadFormSubmissionsConnectionEmail | LeadFormSubmissionsConnectionStatus | LeadFormSubmissionsConnectionLocation | CreateLeadFormSubmissionPayload | UpdateLeadFormSubmissionPayload | DeleteLeadFormSubmissionPayload | Page | PageConnection | PageAggregator | PageGroupBy | PageConnectionId | PageConnectionCreated_At | PageConnectionUpdated_At | PageConnectionShortName | PageConnectionMetadata | PageConnectionStatus | PageConnectionSlug | PageConnectionPageColor | PageConnectionLayout | PageConnectionLocale | CreatePagePayload | UpdatePagePayload | DeletePagePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_At | UploadFileConnectionUpdated_At | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | I18NLocale | ComponentElementsFeatureColumn | ComponentElementsFeatureRow | ComponentElementsFeature | ComponentElementsFooterSection | ComponentElementsLogos | ComponentElementsNotificationBanner | ComponentElementsPlan | ComponentElementsTestimonial | ComponentLayoutFooter | ComponentLayoutNavbar | ComponentLinksButtonLink | ComponentLinksButton | ComponentLinksLink | ComponentMetaMetadata | ComponentSectionsBottomActions | ComponentSectionsFeatureColumnsGroup | ComponentSectionsFeatureRowsGroup | ComponentSectionsGalleryFullscreen | ComponentSectionsGallery | ComponentSectionsHero | ComponentSectionsImage | ComponentSectionsLargeVideo | ComponentSectionsLeadForm | ComponentSectionsPricing | ComponentSectionsRichText | ComponentSectionsTestimonialsGroup;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Global | UpdateGlobalPayload | DeleteGlobalPayload | LeadFormSubmissions | LeadFormSubmissionsConnection | LeadFormSubmissionsAggregator | LeadFormSubmissionsGroupBy | LeadFormSubmissionsConnectionId | LeadFormSubmissionsConnectionCreated_At | LeadFormSubmissionsConnectionUpdated_At | LeadFormSubmissionsConnectionEmail | LeadFormSubmissionsConnectionStatus | LeadFormSubmissionsConnectionLocation | CreateLeadFormSubmissionPayload | UpdateLeadFormSubmissionPayload | DeleteLeadFormSubmissionPayload | Page | PageConnection | PageAggregator | PageGroupBy | PageConnectionId | PageConnectionCreated_At | PageConnectionUpdated_At | PageConnectionShortName | PageConnectionMetadata | PageConnectionStatus | PageConnectionSlug | PageConnectionPageColor | PageConnectionLayout | PageConnectionLocale | CreatePagePayload | UpdatePagePayload | DeletePagePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_At | UsersPermissionsUserConnectionUpdated_At | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_At | UploadFileConnectionUpdated_At | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | I18NLocale | ComponentElementsFeatureColumn | ComponentElementsFeatureRow | ComponentElementsFeature | ComponentElementsFooterSection | ComponentElementsLogos | ComponentElementsNotificationBanner | ComponentElementsPlan | ComponentElementsTestimonial | ComponentLayoutFooter | ComponentLayoutNavbar | ComponentLinksButtonLink | ComponentLinksButton | ComponentLinksLink | ComponentMetaMetadata | ComponentSectionsBottomActions | ComponentSectionsFeatureColumnsGroup | ComponentSectionsFeatureRowsGroup | ComponentSectionsGallery | ComponentSectionsHero | ComponentSectionsImage | ComponentSectionsLargeVideo | ComponentSectionsLeadForm | ComponentSectionsPricing | ComponentSectionsRichText | ComponentSectionsTestimonialsGroup;
 
 export type InputId = {
   id: Scalars['ID'];
