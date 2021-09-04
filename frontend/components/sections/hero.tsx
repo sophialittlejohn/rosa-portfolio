@@ -20,7 +20,7 @@ const Hero = ({ data }: HeroProps) => {
         {data?.title && <h2>{data.title}</h2>}
         <NextImage media={data.picture} />
         {data.picture?.caption && (
-          <p className="mt-4 md:mt-9 text-lg leading-5 px-4 text-primaryB italic">
+          <p className="mt-4 md:mt-9 text-lg leading-5 px-4 italic font-light">
             {data.picture?.caption}
           </p>
         )}

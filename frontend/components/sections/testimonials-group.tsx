@@ -1,5 +1,5 @@
 import CustomLink from "../elements/custom-link";
-import NextImage from "../elements/image";
+import { NextImage } from "../elements/image";
 import classNames from "classnames";
 import { useState } from "react";
 

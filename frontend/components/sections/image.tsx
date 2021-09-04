@@ -1,5 +1,5 @@
 import { ComponentSectionsImage } from "../../utils/@types/strapi";
-import NextImage from "../elements/image";
+import { NextImage } from "../elements/image";
 
 type ImageSectionProps = {
   data: ComponentSectionsImage;

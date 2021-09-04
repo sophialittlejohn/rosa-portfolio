@@ -1,4 +1,4 @@
-import NextImage from "../elements/image";
+import { NextImage } from "../elements/image";
 
 // @ts-ignore
 const FeatureColumnsGroup = ({ data }) => {
