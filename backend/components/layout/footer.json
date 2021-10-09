@@ -2,25 +2,15 @@
   "collectionName": "components_layout_footers",
   "info": {
     "name": "Footer",
-    "icon": "caret-square-down"
+    "icon": "caret-square-down",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "logo": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
+    "text": {
+      "type": "string"
     },
-    "columns": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.footer-section"
-    },
-    "smallText": {
+    "subtext": {
       "type": "string"
     }
   }

@@ -44,7 +44,8 @@
         "sections.rich-text",
         "sections.lead-form",
         "sections.image",
-        "sections.gallery"
+        "sections.gallery",
+        "sections.images-panel"
       ],
       "pluginOptions": {
         "i18n": {

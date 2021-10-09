@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sections_images_panels",
+  "info": {
+    "name": "ImagesPanel",
+    "icon": "images",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.link"
+    }
+  }
+}
