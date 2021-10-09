@@ -38,13 +38,13 @@ const Seo = ({ metadata }: SeoProps) => {
         }),
       }}
       // Only included Twitter data if we have it
-      twitter={{
-        ...(metadata?.twitterCardType && {
-          cardType: metadata?.twitterCardType,
-        }),
-        // Handle is the twitter username of the content creator
-        ...(metadata?.twitterUsername && { handle: metadata?.twitterUsername }),
-      }}
+      // twitter={{
+      //   ...(metadata?.twitterCardType && {
+      //     cardType: metadata?.twitterCardType,
+      //   }),
+      //   // Handle is the twitter username of the content creator
+      //   ...(metadata?.twitterUsername && { handle: metadata?.twitterUsername }),
+      // }}
     />
   );
 };

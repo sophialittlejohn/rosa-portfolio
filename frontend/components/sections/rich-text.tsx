@@ -21,7 +21,7 @@ const RichText = ({ data, pageColor }: RichTextProps) => {
         }
       )}
     >
-      {data?.content && <Markdown source={data.content} />}
+      {data?.content && <Markdown children={data.content} />}
     </section>
   );
 };

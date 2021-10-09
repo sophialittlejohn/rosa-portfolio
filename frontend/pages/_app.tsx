@@ -12,6 +12,7 @@ import { getGlobalData } from "../utils/api";
 import { getStrapiMedia } from "../utils/media";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  console.log("➜ ~ pageProps", pageProps);
   // Extract the data we need
   const { global } = pageProps;
   if (global == null) {
@@ -26,7 +27,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <link
           rel="shortcut icon"
-          href={getStrapiMedia(global.favicon.url) || ""}
+          href={getStrapiMedia(global?.favicon?.url) || ""}
         />
       </Head>
       {/* Global site metadata */}
@@ -45,10 +46,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             }
           ) as any,
         }}
-        twitter={{
-          cardType: metadata.twitterCardType,
-          handle: metadata.twitterUsername,
-        }}
+        // twitter={{
+        //   cardType: metadata.twitterCardType,
+        //   handle: metadata.twitterUsername,
+        // }}
       />
       {/* Display the content */}
       <Component {...pageProps} />
@@ -61,9 +62,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 // Hopefully we can replace this with getStaticProps once this issue is fixed:
 // https://github.com/vercel/next.js/discussions/10949
 MyApp.getInitialProps = async (appContext: AppContext) => {
+  // console.log("➜ ~ appContext", appContext);
+
+  // if (appContext.router.pathname === "/_error") {
+  //   throw new Error(JSON.stringify(appContext.ctx));
+  // }
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext);
-  const globalLocale = await getGlobalData(appContext.router.locale as Locales);
+  console.log("➜ ~ appProps", appProps);
+  const globalLocale =
+    (await getGlobalData(appContext.router.locale as Locales)) || "en";
 
   return {
     ...appProps,

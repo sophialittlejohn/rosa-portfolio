@@ -1,23 +1,28 @@
 import Image from "next/image";
-import { getStrapiMedia } from "../../utils/media";
+import { UploadFile } from "../../utils/@types/strapi";
 
-// @ts-ignore
-export const NextImage = ({ media, ...props }) => {
-  console.log("➜ ~ media", media);
-  // @ts-ignore
-  const loader = ({ src }) => {
-    return getStrapiMedia(src);
-  };
+type NextImageProps = {
+  media: UploadFile;
+  width?: string | number;
+  height?: string | number;
+  format?: "thumbnail" | "small" | "medium";
+};
+
+export const NextImage = ({
+  media,
+  format = "small",
+  ...props
+}: NextImageProps) => {
+  const img: UploadFile = media.formats[format];
 
   // The image has a fixed width and height
   if (props.width && props.height) {
     return (
-      // @ts-ignore
       <Image
         // @ts-ignore
-        loader={loader}
-        src={media?.url || ""}
-        alt={media?.alternativeText || ""}
+        // loader={loader}
+        src={img.url}
+        alt={img?.alternativeText || ""}
         {...props}
       />
     );
@@ -27,13 +32,13 @@ export const NextImage = ({ media, ...props }) => {
   return (
     <Image
       // @ts-ignore
-      loader={loader}
+      // loader={loader}
       layout="responsive"
-      width={media?.width}
-      height={media?.height}
+      width={img?.width || 300}
+      height={img?.height || 300}
       objectFit="contain"
-      src={media?.url}
-      alt={media?.alternativeText || ""}
+      src={img.url}
+      alt={img.alternativeText || ""}
     />
   );
 };

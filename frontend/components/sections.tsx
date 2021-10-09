@@ -4,6 +4,7 @@ import FeatureRowsGroup from "../components/sections/feature-rows-group";
 import { Gallery } from "./sections/gallery";
 import Hero from "../components/sections/hero";
 import ImageSection from "./sections/image";
+import { ImagesPanel } from "./sections/images-panel";
 import LargeVideo from "../components/sections/large-video";
 import LeadForm from "./sections/lead-form";
 import { PageContentSectionsDynamicZone } from "../utils/@types/strapi";
@@ -24,6 +25,7 @@ const sectionComponents = {
   "sections.lead-form": LeadForm,
   "sections.image": ImageSection,
   "sections.gallery": Gallery,
+  "sections.images-panel": ImagesPanel,
 };
 
 // Display a section individually

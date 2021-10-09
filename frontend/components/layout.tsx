@@ -1,4 +1,4 @@
-import Footer from "./elements/footer";
+import Footer from "./sections/footer";
 import { Global } from "../utils/@types/strapi";
 import Navbar from "./elements/navbar";
 import classNames from "classnames";
@@ -14,9 +14,8 @@ const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
   return (
     <div
       className={classNames("w-full", {
-        "bg-primaryB": configuration.pageColor === "dark",
+        "bg-primaryB text-white": configuration.pageColor === "dark",
         "bg-primaryA": configuration.pageColor === "light",
-        "text-white": configuration.pageColor === "dark",
       })}
     >
       <div

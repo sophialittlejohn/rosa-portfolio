@@ -65,7 +65,8 @@ const DynamicPage = ({
 export async function getStaticPaths(context: NextPageContextWithStrapi) {
   // Get all pages from Strapi
   const allPages = context?.locales.map(async (locale) => {
-    const localePages = await fetchAPI(`/pages?_locale=${locale}`);
+    // const localePages = await fetchAPI(`/pages?_locale=${locale}`);
+    const localePages = await fetchAPI(`/pages`);
     return localePages;
   });
 
@@ -87,6 +88,7 @@ export async function getStaticPaths(context: NextPageContextWithStrapi) {
 
 export async function getStaticProps(context: NextPageContextWithStrapi) {
   const { params, locale, locales, defaultLocale, preview = false } = context;
+  console.log("➜ ~ locale", locale);
 
   const globalLocale = await getGlobalData(locale);
   // Fetch pages. Include drafts if preview mode is on

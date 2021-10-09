@@ -13,23 +13,22 @@ const Navbar = ({ navbar }: NavBarProps) => {
     <nav className="max-w-screen-xl">
       <ul className="flex content-center justify-center pt-7 sm:pt-14 mb-10 md:mb-20">
         {navbar?.links?.map((navLink) => {
-          if (navLink?.url !== "/")
-            return (
-              <li key={`${navLink?.id}${Math.random()}`}>
-                {navLink && (
-                  <CustomLink link={navLink}>
-                    <div
-                      className={classNames(
-                        "text-lg md:text-2xl mx-4 uppercase",
-                        { "font-bold": asPath?.includes(navLink?.url || "") }
-                      )}
-                    >
-                      {navLink?.text}
-                    </div>
-                  </CustomLink>
-                )}
-              </li>
-            );
+          return (
+            <li key={`${navLink?.id}${Math.random()}`}>
+              {navLink && (
+                <CustomLink link={navLink}>
+                  <div
+                    className={classNames(
+                      "text-lg md:text-2xl mx-4 uppercase",
+                      { "font-bold": asPath?.includes(navLink?.url || "") }
+                    )}
+                  >
+                    {navLink?.text}
+                  </div>
+                </CustomLink>
+              )}
+            </li>
+          );
         })}
       </ul>
     </nav>

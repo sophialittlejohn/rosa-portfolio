@@ -5,4 +5,15 @@
     --color-lightGray: #eeeeee;
     --color-blackish: #3e3025;
   }
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  a {
+    width: 100%;
+    height: 100%
+  }
 }

@@ -3,15 +3,21 @@ import Link from "next/link";
 
 type CustomLinkProps = {
   link?: ComponentLinksLink;
+  styles?: string;
 };
 
-const CustomLink: React.FC<CustomLinkProps> = ({ link, children }) => {
+const CustomLink: React.FC<CustomLinkProps> = ({
+  link,
+  styles = "",
+  children,
+}) => {
+  console.log("➜ ~ styles", styles);
   const isInternalLink = link?.url.startsWith("/");
 
   // For internal links, use the Next.js Link component
   if (isInternalLink) {
     return (
-      <Link href="/[[...slug]]" as={link?.url}>
+      <Link href="/[[...slug]]" as={link?.url} passHref>
         <a>{children}</a>
       </Link>
     );
