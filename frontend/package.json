@@ -10,7 +10,7 @@
     "update:types": "cd ../backend && npx strapi-generate-types generate && cp models/strapi.d.ts ../frontend/utils/@types"
   },
   "dependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@tailwindcss/postcss7-compat": "npm:@tailwindcss/postcss7-compat",
     "@tailwindcss/typography": "^0.3.0",
     "autoprefixer": "^9",
     "classnames": "^2.2.6",
@@ -18,15 +18,15 @@
     "date-fns": "2.14.0",
     "formik": "^2.2.6",
     "js-cookie": "^2.2.1",
-    "next": "^11.0.0",
+    "next": "^11.1.2",
     "next-seo": "^4.7.1",
     "postcss": "^7",
     "postcss-nested": "^4.2.3",
     "prop-types": "^15.7.2",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-icons": "^3.10.0",
-    "react-markdown": "^4.3.1",
+    "react-markdown": "^7.0.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "yup": "^0.32.8"
   },

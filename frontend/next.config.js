@@ -1,10 +1,11 @@
 module.exports = {
   reactStrictMode: true,
   images: {
+    loader: "default",
     domains: ["res.cloudinary.com"]
   },
   i18n: {
-    locales: ['en', 'fr'],
+    locales: ['en'],
     defaultLocale: 'en',
   },
 }

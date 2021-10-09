@@ -18,14 +18,20 @@ export async function fetchAPI(path: string, options = {}) {
     ...options,
   };
   const requestUrl = getStrapiURL(path);
-  const response = await fetch(requestUrl, mergedOptions);
+  console.log("➜ ~ requestUrl", requestUrl);
+  try {
+    const response = await fetch(requestUrl, mergedOptions);
 
-  if (!response.ok) {
-    console.error(response.statusText);
-    throw new Error(`An error occured please try again`);
+    if (!response.ok) {
+      console.error("LE ERREUR", response.text());
+      throw new Error(JSON.stringify(response.statusText));
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log("IN ZA ERREUR", error);
+    throw error;
   }
-  const data = await response.json();
-  return data;
 }
 
 /**
@@ -45,10 +51,13 @@ export async function getPageData(
 ) {
   const slug = params.slug.join("/");
   // Find the pages that match this slug
+  // const pagesData = await fetchAPI(
+  //   `/pages?slug=${slug}&_locale=${locale || "en"}&status=published${
+  //     preview ? "&status=draft" : ""
+  //   }`
+  // );
   const pagesData = await fetchAPI(
-    `/pages?slug=${slug}&_locale=${locale}&status=published${
-      preview ? "&status=draft" : ""
-    }`
+    `/pages?slug=${slug}&status=published${preview ? "&status=draft" : ""}`
   );
 
   // Make sure we found something, otherwise return null
@@ -62,6 +71,7 @@ export async function getPageData(
 
 // Get site data from Strapi (metadata, navbar, footer...)
 export async function getGlobalData(locale: Locales) {
-  const global = await fetchAPI(`/global?_locale=${locale}`);
+  // const global = await fetchAPI(`/global?_locale=${locale || "en"}`);
+  const global = await fetchAPI(`/global`);
   return global;
 }
