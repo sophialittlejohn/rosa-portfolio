@@ -18,7 +18,7 @@ export async function fetchAPI(path: string, options = {}) {
     ...options,
   };
   const requestUrl = getStrapiURL(path);
-  console.log("➜ ~ requestUrl", requestUrl);
+
   try {
     const response = await fetch(requestUrl, mergedOptions);
 

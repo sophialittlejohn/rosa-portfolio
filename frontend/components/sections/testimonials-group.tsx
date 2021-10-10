@@ -41,11 +41,12 @@ const TestimonialsGroup = ({ data }) => {
             </p>
           </div>
           <CustomLink
+            // @ts-ignore
             link={{
               url: selectedTestimonial.link,
               text: "",
               newTab: false,
-              id: 0,
+              id: "0",
             }}
           >
             <span className="uppercase tracking-wide text-blue-700 hover:underline  with-arrow sm:self-end mt-6 sm:mt-0">

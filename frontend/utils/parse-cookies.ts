@@ -1,5 +1,6 @@
-import cookie from "cookie"
+import cookie from "cookie";
 
-export function parseCookies(req) {
-  return cookie.parse(req ? req.headers.cookie || '' : document.cookie)
+export function parseCookies(req: Request) {
+  // @ts-ignore
+  return cookie.parse(req ? req.headers.cookie || "" : document.cookie);
 }

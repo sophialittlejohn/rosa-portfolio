@@ -1,6 +1,6 @@
-import Video from "../elements/video"
+import Video from "../elements/video";
 
-const LargeVideo = ({ data }) => {
+const LargeVideo = ({ data }: any) => {
   return (
     <section className="container flex flex-col align-middle text-center pt-12 pb-16">
       <h2 className="title mb-6">{data.title}</h2>
@@ -14,7 +14,7 @@ const LargeVideo = ({ data }) => {
         />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default LargeVideo
+export default LargeVideo;
