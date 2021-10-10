@@ -14,6 +14,7 @@ export const Gallery = ({ data }: GalleryProps) => {
         data.images.map((image) => {
           return (
             <div className="w-screen">
+              {/* @ts-ignore */}
               <NextImage media={image} />
             </div>
           );
