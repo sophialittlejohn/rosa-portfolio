@@ -65,6 +65,7 @@ const LocaleSwitch = ({
   }, [locale, router, pageContext]);
 
   return (
+    // @ts-ignore
     <div ref={select} className="relative ml-4 ">
       <button
         type="button"

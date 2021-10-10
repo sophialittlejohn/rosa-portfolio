@@ -10,7 +10,7 @@ type FooterProps = {
 const Footer = ({ footer, configuration }: FooterProps) => {
   return (
     <footer className="py-12 self-end content-center w-full text-center">
-      <CustomLink link={{ url: "/", id: "home", text: "home" }}>
+      <CustomLink link={{ url: "/", id: "home", text: "home", _id: "home" }}>
         <div
           className={classNames("lg:prose-lg max-w-none", {
             "dark:prose": configuration.pageColor === "dark",

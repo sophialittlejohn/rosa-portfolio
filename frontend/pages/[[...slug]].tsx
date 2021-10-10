@@ -54,7 +54,9 @@ const DynamicPage = ({
       {/* Display content sections */}
       <Sections
         layout={pageContext.layout}
+        // @ts-ignore
         sections={sections}
+        // @ts-ignore
         preview={preview}
         pageColor={pageContext.pageColor}
       />

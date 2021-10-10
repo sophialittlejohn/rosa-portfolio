@@ -3,7 +3,6 @@ import "../styles/theme.css";
 
 import App, { AppContext } from "next/app";
 
-import { AppProps } from "next/dist/next-server/lib/router/router";
 import { DefaultSeo } from "next-seo";
 import ErrorPage from "next/error";
 import Head from "next/head";
@@ -11,7 +10,7 @@ import { Locales } from "../utils/types";
 import { getGlobalData } from "../utils/api";
 import { getStrapiMedia } from "../utils/media";
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: any) => {
   console.log("➜ ~ pageProps", pageProps);
   // Extract the data we need
   const { global } = pageProps;
