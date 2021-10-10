@@ -13,7 +13,7 @@ export const NextImage = ({
   format = "small",
   ...props
 }: NextImageProps) => {
-  const img: UploadFile = media.formats[format];
+  const img: UploadFile = media?.formats ? media?.formats[format] : media;
 
   // The image has a fixed width and height
   if (props.width && props.height) {
@@ -21,7 +21,7 @@ export const NextImage = ({
       <Image
         // @ts-ignore
         // loader={loader}
-        src={img.url}
+        src={img?.url}
         alt={img?.alternativeText || ""}
         {...props}
       />
@@ -37,8 +37,8 @@ export const NextImage = ({
       width={img?.width || 300}
       height={img?.height || 300}
       objectFit="contain"
-      src={img.url}
-      alt={img.alternativeText || ""}
+      src={img?.url}
+      alt={img?.alternativeText || ""}
     />
   );
 };
