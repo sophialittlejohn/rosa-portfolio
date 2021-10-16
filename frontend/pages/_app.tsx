@@ -11,7 +11,6 @@ import { getGlobalData } from "../utils/api";
 import { getStrapiMedia } from "../utils/media";
 
 const MyApp = ({ Component, pageProps }: any) => {
-  console.log("➜ ~ pageProps", pageProps);
   // Extract the data we need
   const { global } = pageProps;
   if (global == null) {
@@ -68,7 +67,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // }
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext);
-  console.log("➜ ~ appProps", appProps);
   const globalLocale =
     (await getGlobalData(appContext.router.locale as Locales)) || "en";
 

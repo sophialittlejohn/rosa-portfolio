@@ -23,7 +23,11 @@ const Navbar = ({ navbar, logo }: NavBarProps) => {
                     <div
                       className={classNames(
                         "text-lg md:text-2xl mx-4 uppercase",
-                        { "font-bold": asPath?.includes(navLink?.url || "") }
+                        {
+                          "font-bold":
+                            asPath.slice(1) === navLink?.url ||
+                            asPath === navLink?.url,
+                        }
                       )}
                     >
                       {navLink?.text}

@@ -11,7 +11,6 @@ type ImagesPanelProps = {
 };
 
 export const ImagesPanel = ({ data }: ImagesPanelProps) => {
-  console.log("➜ ~ props", data);
   return (
     <section className="w-screen px-6">
       <div className="w-full flex flex-col md:flex-row gap-2">

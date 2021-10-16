@@ -11,7 +11,6 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   styles = "",
   children,
 }) => {
-  console.log("➜ ~ styles", styles);
   const isInternalLink = link?.url.startsWith("/");
 
   // For internal links, use the Next.js Link component
