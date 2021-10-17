@@ -15,16 +15,14 @@
     "email": {
       "type": "string"
     },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "seen",
-        "contacted",
-        "ignored"
-      ]
-    },
-    "location": {
+    "firstname": {
       "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
     }
   }
 }

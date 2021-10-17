@@ -7,10 +7,12 @@ module.exports = {
       backgroundColor: {
         primaryA: "var(--color-lightGray)",
         primaryB: "var(--color-blackish)",
+        colorAccent: "var(--color-accent)"
       },
       textColor: {
         primaryA: "var(--color-lightGray)",
         primaryB: "var(--color-blackish)",
+        colorAccent: "var(--color-accent)"
       },
       height: {
         fullscreen: "75vh" // not 100 to make next element visible in viewport

@@ -25,11 +25,17 @@
     "placeholder": {
       "type": "string"
     },
+    "name": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
     "width": {
-      "type": "integer",
-      "min": 20,
-      "max": 100,
-      "default": 100
+      "type": "enumeration",
+      "enum": [
+        "full",
+        "half"
+      ]
     }
   }
 }

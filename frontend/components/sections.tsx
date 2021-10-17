@@ -1,12 +1,12 @@
 import BottomActions from "../components/sections/bottom-actions";
 import FeatureColumnsGroup from "../components/sections/feature-columns-group";
 import FeatureRowsGroup from "../components/sections/feature-rows-group";
+import Form from "./sections/form";
 import { Gallery } from "./sections/gallery";
 import Hero from "../components/sections/hero";
 import ImageSection from "./sections/image";
 import { ImagesPanel } from "./sections/images-panel";
 import LargeVideo from "../components/sections/large-video";
-import LeadForm from "./sections/lead-form";
 import { PageContentSectionsDynamicZone } from "../utils/@types/strapi";
 import RichText from "./sections/rich-text";
 import TestimonialsGroup from "../components/sections/testimonials-group";
@@ -22,7 +22,7 @@ const sectionComponents = {
   "sections.bottom-actions": BottomActions,
   "sections.testimonials-group": TestimonialsGroup,
   "sections.rich-text": RichText,
-  "sections.lead-form": LeadForm,
+  "sections.form": Form,
   "sections.image": ImageSection,
   "sections.gallery": Gallery,
   "sections.images-panel": ImagesPanel,

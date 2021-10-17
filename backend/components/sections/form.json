@@ -19,6 +19,9 @@
       "type": "component",
       "repeatable": false,
       "component": "links.button"
+    },
+    "responseCollection": {
+      "type": "string"
     }
   }
 }

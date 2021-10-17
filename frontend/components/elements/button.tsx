@@ -1,67 +1,46 @@
 import Loader from "./loader";
-import PropTypes from "prop-types";
-import { buttonLinkPropTypes } from "../../utils/types";
+import { SyntheticEvent } from "react";
 import classNames from "classnames";
 
+type ButtonProps = {
+  text: string;
+  handleClick?: (event: SyntheticEvent) => void;
+  loading: boolean;
+  type: string;
+  variant: "primary" | "secondary";
+  success?: boolean;
+} & Pick<HTMLButtonElement, "disabled">;
+
 const Button = ({
-  button,
-  appearance,
-  compact = false,
+  text,
   handleClick,
   loading = false,
   type,
-}: any) => {
+  variant,
+  success,
+  ...button
+}: ButtonProps) => {
   return (
-    // @ts-ignore
-    <button link={button} onClick={handleClick} type={type}>
+    <button
+      onClick={handleClick}
+      type="submit"
+      className={classNames(
+        "border-2 rounded-md",
+        { "text-colorAccent bg-white border-white": variant === "primary" },
+        { "": variant === "secondary" },
+        { "bg-opacity-70 border-opacity-70": success }
+      )}
+      {...button}
+    >
       <div
         className={classNames(
-          // Common classes
-          "flex w-full justify-center lg:w-auto text-center uppercase tracking-wide font-semibold text-base md:text-sm border-2 rounded-md",
-          // Full-size button
-          {
-            "px-8 py-4": compact === false,
-          },
-          // Compact button
-          {
-            "px-6 py-2": compact === true,
-          },
-          // Specific to when the button is fully dark
-          {
-            "bg-primary-600 text-white border-primary-600":
-              appearance === "dark",
-          },
-          // Specific to when the button is dark outlines
-          {
-            "text-primary-600 border-primary-600":
-              appearance === "dark-outline",
-          },
-          // Specific to when the button is fully white
-          {
-            "bg-white text-primary-600 border-white": appearance === "white",
-          },
-          // Specific to when the button is white outlines
-          {
-            "text-white border-white": appearance === "white-outline",
-          }
+          "flex w-full justify-center lg:w-auto text-center uppercase tracking-wide font-semibold text-base md:text-sm py-2 disabled:cursor-not-allowed"
         )}
       >
-        {loading && <Loader />}
-        {button.text}
+        {loading ? <Loader /> : success ? <div>SUCEESS</div> : text}
       </div>
     </button>
   );
-};
-
-Button.propTypes = {
-  button: buttonLinkPropTypes,
-  appearance: PropTypes.oneOf([
-    "dark",
-    "white-outline",
-    "white",
-    "dark-outline",
-  ]),
-  compact: PropTypes.bool,
 };
 
 export default Button;

@@ -83,6 +83,7 @@ export type Global = {
   favicon?: Maybe<UploadFile>;
   navbar?: Maybe<ComponentLayoutNavbar>;
   footer?: Maybe<ComponentLayoutFooter>;
+  logo?: Maybe<UploadFile>;
   locale?: Maybe<Scalars['String']>;
   localizations?: Maybe<Array<Maybe<Global>>>;
 };
@@ -101,6 +102,7 @@ export type GlobalInput = {
   favicon?: Maybe<Scalars['ID']>;
   navbar?: Maybe<ComponentLayoutNavbarInput>;
   footer?: Maybe<ComponentLayoutFooterInput>;
+  logo?: Maybe<Scalars['ID']>;
   localizations?: Maybe<Array<Maybe<Scalars['ID']>>>;
   locale?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
@@ -113,6 +115,7 @@ export type EditGlobalInput = {
   favicon?: Maybe<Scalars['ID']>;
   navbar?: Maybe<EditComponentLayoutNavbarInput>;
   footer?: Maybe<EditComponentLayoutFooterInput>;
+  logo?: Maybe<Scalars['ID']>;
   localizations?: Maybe<Array<Maybe<Scalars['ID']>>>;
   locale?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
@@ -133,131 +136,135 @@ export type DeleteGlobalPayload = {
   global?: Maybe<Global>;
 };
 
-export enum Enum_Leadformsubmissions_Status {
-  Seen = 'seen',
-  Contacted = 'contacted',
-  Ignored = 'ignored'
-}
-
-export type LeadFormSubmissions = {
-  __typename?: 'LeadFormSubmissions';
+export type ContactFormSubmissions = {
+  __typename?: 'ContactFormSubmissions';
   id: Scalars['ID'];
   _id: Scalars['ID'];
   createdAt: Scalars['DateTime'];
   updatedAt: Scalars['DateTime'];
   email?: Maybe<Scalars['String']>;
-  status?: Maybe<Enum_Leadformsubmissions_Status>;
-  location?: Maybe<Scalars['String']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
 };
 
-export type LeadFormSubmissionsConnection = {
-  __typename?: 'LeadFormSubmissionsConnection';
-  values?: Maybe<Array<Maybe<LeadFormSubmissions>>>;
-  groupBy?: Maybe<LeadFormSubmissionsGroupBy>;
-  aggregate?: Maybe<LeadFormSubmissionsAggregator>;
+export type ContactFormSubmissionsConnection = {
+  __typename?: 'ContactFormSubmissionsConnection';
+  values?: Maybe<Array<Maybe<ContactFormSubmissions>>>;
+  groupBy?: Maybe<ContactFormSubmissionsGroupBy>;
+  aggregate?: Maybe<ContactFormSubmissionsAggregator>;
 };
 
-export type LeadFormSubmissionsAggregator = {
-  __typename?: 'LeadFormSubmissionsAggregator';
+export type ContactFormSubmissionsAggregator = {
+  __typename?: 'ContactFormSubmissionsAggregator';
   count?: Maybe<Scalars['Int']>;
   totalCount?: Maybe<Scalars['Int']>;
 };
 
-export type LeadFormSubmissionsGroupBy = {
-  __typename?: 'LeadFormSubmissionsGroupBy';
-  id?: Maybe<Array<Maybe<LeadFormSubmissionsConnectionId>>>;
-  _id?: Maybe<Array<Maybe<LeadFormSubmissionsConnection_Id>>>;
-  createdAt?: Maybe<Array<Maybe<LeadFormSubmissionsConnectionCreatedAt>>>;
-  updatedAt?: Maybe<Array<Maybe<LeadFormSubmissionsConnectionUpdatedAt>>>;
-  email?: Maybe<Array<Maybe<LeadFormSubmissionsConnectionEmail>>>;
-  status?: Maybe<Array<Maybe<LeadFormSubmissionsConnectionStatus>>>;
-  location?: Maybe<Array<Maybe<LeadFormSubmissionsConnectionLocation>>>;
+export type ContactFormSubmissionsGroupBy = {
+  __typename?: 'ContactFormSubmissionsGroupBy';
+  id?: Maybe<Array<Maybe<ContactFormSubmissionsConnectionId>>>;
+  _id?: Maybe<Array<Maybe<ContactFormSubmissionsConnection_Id>>>;
+  createdAt?: Maybe<Array<Maybe<ContactFormSubmissionsConnectionCreatedAt>>>;
+  updatedAt?: Maybe<Array<Maybe<ContactFormSubmissionsConnectionUpdatedAt>>>;
+  email?: Maybe<Array<Maybe<ContactFormSubmissionsConnectionEmail>>>;
+  firstname?: Maybe<Array<Maybe<ContactFormSubmissionsConnectionFirstname>>>;
+  lastname?: Maybe<Array<Maybe<ContactFormSubmissionsConnectionLastname>>>;
+  message?: Maybe<Array<Maybe<ContactFormSubmissionsConnectionMessage>>>;
 };
 
-export type LeadFormSubmissionsConnectionId = {
-  __typename?: 'LeadFormSubmissionsConnectionId';
+export type ContactFormSubmissionsConnectionId = {
+  __typename?: 'ContactFormSubmissionsConnectionId';
   key?: Maybe<Scalars['ID']>;
-  connection?: Maybe<LeadFormSubmissionsConnection>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
 };
 
-export type LeadFormSubmissionsConnection_Id = {
-  __typename?: 'LeadFormSubmissionsConnection_id';
+export type ContactFormSubmissionsConnection_Id = {
+  __typename?: 'ContactFormSubmissionsConnection_id';
   key?: Maybe<Scalars['ID']>;
-  connection?: Maybe<LeadFormSubmissionsConnection>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
 };
 
-export type LeadFormSubmissionsConnectionCreatedAt = {
-  __typename?: 'LeadFormSubmissionsConnectionCreatedAt';
+export type ContactFormSubmissionsConnectionCreatedAt = {
+  __typename?: 'ContactFormSubmissionsConnectionCreatedAt';
   key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<LeadFormSubmissionsConnection>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
 };
 
-export type LeadFormSubmissionsConnectionUpdatedAt = {
-  __typename?: 'LeadFormSubmissionsConnectionUpdatedAt';
+export type ContactFormSubmissionsConnectionUpdatedAt = {
+  __typename?: 'ContactFormSubmissionsConnectionUpdatedAt';
   key?: Maybe<Scalars['DateTime']>;
-  connection?: Maybe<LeadFormSubmissionsConnection>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
 };
 
-export type LeadFormSubmissionsConnectionEmail = {
-  __typename?: 'LeadFormSubmissionsConnectionEmail';
+export type ContactFormSubmissionsConnectionEmail = {
+  __typename?: 'ContactFormSubmissionsConnectionEmail';
   key?: Maybe<Scalars['String']>;
-  connection?: Maybe<LeadFormSubmissionsConnection>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
 };
 
-export type LeadFormSubmissionsConnectionStatus = {
-  __typename?: 'LeadFormSubmissionsConnectionStatus';
+export type ContactFormSubmissionsConnectionFirstname = {
+  __typename?: 'ContactFormSubmissionsConnectionFirstname';
   key?: Maybe<Scalars['String']>;
-  connection?: Maybe<LeadFormSubmissionsConnection>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
 };
 
-export type LeadFormSubmissionsConnectionLocation = {
-  __typename?: 'LeadFormSubmissionsConnectionLocation';
+export type ContactFormSubmissionsConnectionLastname = {
+  __typename?: 'ContactFormSubmissionsConnectionLastname';
   key?: Maybe<Scalars['String']>;
-  connection?: Maybe<LeadFormSubmissionsConnection>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
 };
 
-export type LeadFormSubmissionInput = {
+export type ContactFormSubmissionsConnectionMessage = {
+  __typename?: 'ContactFormSubmissionsConnectionMessage';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ContactFormSubmissionsConnection>;
+};
+
+export type ContactFormSubmissionInput = {
   email?: Maybe<Scalars['String']>;
-  status?: Maybe<Enum_Leadformsubmissions_Status>;
-  location?: Maybe<Scalars['String']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
 
-export type EditLeadFormSubmissionInput = {
+export type EditContactFormSubmissionInput = {
   email?: Maybe<Scalars['String']>;
-  status?: Maybe<Enum_Leadformsubmissions_Status>;
-  location?: Maybe<Scalars['String']>;
+  firstname?: Maybe<Scalars['String']>;
+  lastname?: Maybe<Scalars['String']>;
+  message?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
 
-export type CreateLeadFormSubmissionInput = {
-  data?: Maybe<LeadFormSubmissionInput>;
+export type CreateContactFormSubmissionInput = {
+  data?: Maybe<ContactFormSubmissionInput>;
 };
 
-export type CreateLeadFormSubmissionPayload = {
-  __typename?: 'createLeadFormSubmissionPayload';
-  leadFormSubmission?: Maybe<LeadFormSubmissions>;
+export type CreateContactFormSubmissionPayload = {
+  __typename?: 'createContactFormSubmissionPayload';
+  contactFormSubmission?: Maybe<ContactFormSubmissions>;
 };
 
-export type UpdateLeadFormSubmissionInput = {
+export type UpdateContactFormSubmissionInput = {
   where?: Maybe<InputId>;
-  data?: Maybe<EditLeadFormSubmissionInput>;
+  data?: Maybe<EditContactFormSubmissionInput>;
 };
 
-export type UpdateLeadFormSubmissionPayload = {
-  __typename?: 'updateLeadFormSubmissionPayload';
-  leadFormSubmission?: Maybe<LeadFormSubmissions>;
+export type UpdateContactFormSubmissionPayload = {
+  __typename?: 'updateContactFormSubmissionPayload';
+  contactFormSubmission?: Maybe<ContactFormSubmissions>;
 };
 
-export type DeleteLeadFormSubmissionInput = {
+export type DeleteContactFormSubmissionInput = {
   where?: Maybe<InputId>;
 };
 
-export type DeleteLeadFormSubmissionPayload = {
-  __typename?: 'deleteLeadFormSubmissionPayload';
-  leadFormSubmission?: Maybe<LeadFormSubmissions>;
+export type DeleteContactFormSubmissionPayload = {
+  __typename?: 'deleteContactFormSubmissionPayload';
+  contactFormSubmission?: Maybe<ContactFormSubmissions>;
 };
 
 export enum Enum_Page_Status {
@@ -275,7 +282,7 @@ export enum Enum_Page_Layout {
   Vertical = 'vertical'
 }
 
-export type PageContentSectionsDynamicZone = ComponentSectionsHero | ComponentSectionsFeatureColumnsGroup | ComponentSectionsFeatureRowsGroup | ComponentSectionsRichText | ComponentSectionsLeadForm | ComponentSectionsImage | ComponentSectionsGallery | ComponentSectionsImagesPanel;
+export type PageContentSectionsDynamicZone = ComponentSectionsHero | ComponentSectionsRichText | ComponentSectionsImage | ComponentSectionsGallery | ComponentSectionsImagesPanel | ComponentSectionsForm | ComponentSectionsFeatureRowsGroup | ComponentSectionsFeatureColumnsGroup;
 
 
 export type Page = {
@@ -1110,6 +1117,48 @@ export type EditComponentElementsFooterSectionInput = {
   links?: Maybe<Array<Maybe<EditComponentLinksLinkInput>>>;
 };
 
+export enum Enum_Componentelementsinputfield_Type {
+  Text = 'text',
+  Email = 'email',
+  Textarea = 'textarea'
+}
+
+export enum Enum_Componentelementsinputfield_Width {
+  Full = 'full',
+  Half = 'half'
+}
+
+export type ComponentElementsInputField = {
+  __typename?: 'ComponentElementsInputField';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  required?: Maybe<Scalars['Boolean']>;
+  type?: Maybe<Enum_Componentelementsinputfield_Type>;
+  placeholder?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  width?: Maybe<Enum_Componentelementsinputfield_Width>;
+};
+
+export type ComponentElementsInputFieldInput = {
+  label?: Maybe<Scalars['String']>;
+  required?: Maybe<Scalars['Boolean']>;
+  type?: Maybe<Enum_Componentelementsinputfield_Type>;
+  placeholder?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  width?: Maybe<Enum_Componentelementsinputfield_Width>;
+};
+
+export type EditComponentElementsInputFieldInput = {
+  id?: Maybe<Scalars['ID']>;
+  label?: Maybe<Scalars['String']>;
+  required?: Maybe<Scalars['Boolean']>;
+  type?: Maybe<Enum_Componentelementsinputfield_Type>;
+  placeholder?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  width?: Maybe<Enum_Componentelementsinputfield_Width>;
+};
+
 export type ComponentElementsLogos = {
   __typename?: 'ComponentElementsLogos';
   id: Scalars['ID'];
@@ -1403,6 +1452,28 @@ export type EditComponentSectionsFeatureRowsGroupInput = {
   features?: Maybe<Array<Maybe<EditComponentElementsFeatureRowInput>>>;
 };
 
+export type ComponentSectionsForm = {
+  __typename?: 'ComponentSectionsForm';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  inputs?: Maybe<Array<Maybe<ComponentElementsInputField>>>;
+  title?: Maybe<Scalars['String']>;
+  submitButton?: Maybe<ComponentLinksButton>;
+};
+
+export type ComponentSectionsFormInput = {
+  inputs?: Maybe<Array<Maybe<ComponentElementsInputFieldInput>>>;
+  title?: Maybe<Scalars['String']>;
+  submitButton?: Maybe<ComponentLinksButtonInput>;
+};
+
+export type EditComponentSectionsFormInput = {
+  id?: Maybe<Scalars['ID']>;
+  inputs?: Maybe<Array<Maybe<EditComponentElementsInputFieldInput>>>;
+  title?: Maybe<Scalars['String']>;
+  submitButton?: Maybe<EditComponentLinksButtonInput>;
+};
+
 export type ComponentSectionsGallery = {
   __typename?: 'ComponentSectionsGallery';
   id: Scalars['ID'];
@@ -1620,7 +1691,7 @@ export type EditComponentSectionsTestimonialsGroupInput = {
   testimonials?: Maybe<Array<Maybe<EditComponentElementsTestimonialInput>>>;
 };
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Global | UpdateGlobalPayload | DeleteGlobalPayload | LeadFormSubmissions | LeadFormSubmissionsConnection | LeadFormSubmissionsAggregator | LeadFormSubmissionsGroupBy | LeadFormSubmissionsConnectionId | LeadFormSubmissionsConnection_Id | LeadFormSubmissionsConnectionCreatedAt | LeadFormSubmissionsConnectionUpdatedAt | LeadFormSubmissionsConnectionEmail | LeadFormSubmissionsConnectionStatus | LeadFormSubmissionsConnectionLocation | CreateLeadFormSubmissionPayload | UpdateLeadFormSubmissionPayload | DeleteLeadFormSubmissionPayload | Page | PageConnection | PageAggregator | PageGroupBy | PageConnectionId | PageConnection_Id | PageConnectionCreatedAt | PageConnectionUpdatedAt | PageConnectionShortName | PageConnectionMetadata | PageConnectionStatus | PageConnectionSlug | PageConnectionPageColor | PageConnectionLayout | PageConnectionLocale | CreatePagePayload | UpdatePagePayload | DeletePagePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentElementsFeatureColumn | ComponentElementsFeatureRow | ComponentElementsFeature | ComponentElementsFooterSection | ComponentElementsLogos | ComponentElementsNotificationBanner | ComponentElementsPlan | ComponentElementsTestimonial | ComponentLayoutFooter | ComponentLayoutNavbar | ComponentLinksButtonLink | ComponentLinksButton | ComponentLinksLink | ComponentMetaMetadata | ComponentSectionsBottomActions | ComponentSectionsFeatureColumnsGroup | ComponentSectionsFeatureRowsGroup | ComponentSectionsGallery | ComponentSectionsHero | ComponentSectionsImage | ComponentSectionsImagesPanel | ComponentSectionsLargeVideo | ComponentSectionsLeadForm | ComponentSectionsPricing | ComponentSectionsRichText | ComponentSectionsTestimonialsGroup;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Global | UpdateGlobalPayload | DeleteGlobalPayload | ContactFormSubmissions | ContactFormSubmissionsConnection | ContactFormSubmissionsAggregator | ContactFormSubmissionsGroupBy | ContactFormSubmissionsConnectionId | ContactFormSubmissionsConnection_Id | ContactFormSubmissionsConnectionCreatedAt | ContactFormSubmissionsConnectionUpdatedAt | ContactFormSubmissionsConnectionEmail | ContactFormSubmissionsConnectionFirstname | ContactFormSubmissionsConnectionLastname | ContactFormSubmissionsConnectionMessage | CreateContactFormSubmissionPayload | UpdateContactFormSubmissionPayload | DeleteContactFormSubmissionPayload | Page | PageConnection | PageAggregator | PageGroupBy | PageConnectionId | PageConnection_Id | PageConnectionCreatedAt | PageConnectionUpdatedAt | PageConnectionShortName | PageConnectionMetadata | PageConnectionStatus | PageConnectionSlug | PageConnectionPageColor | PageConnectionLayout | PageConnectionLocale | CreatePagePayload | UpdatePagePayload | DeletePagePayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload | ComponentElementsFeatureColumn | ComponentElementsFeatureRow | ComponentElementsFeature | ComponentElementsFooterSection | ComponentElementsInputField | ComponentElementsLogos | ComponentElementsNotificationBanner | ComponentElementsPlan | ComponentElementsTestimonial | ComponentLayoutFooter | ComponentLayoutNavbar | ComponentLinksButtonLink | ComponentLinksButton | ComponentLinksLink | ComponentMetaMetadata | ComponentSectionsBottomActions | ComponentSectionsFeatureColumnsGroup | ComponentSectionsFeatureRowsGroup | ComponentSectionsForm | ComponentSectionsGallery | ComponentSectionsHero | ComponentSectionsImage | ComponentSectionsImagesPanel | ComponentSectionsLargeVideo | ComponentSectionsLeadForm | ComponentSectionsPricing | ComponentSectionsRichText | ComponentSectionsTestimonialsGroup;
 
 export type InputId = {
   id: Scalars['ID'];
@@ -1642,9 +1713,9 @@ export type AdminUser = {
 export type Query = {
   __typename?: 'Query';
   global?: Maybe<Global>;
-  leadFormSubmission?: Maybe<LeadFormSubmissions>;
-  leadFormSubmissions?: Maybe<Array<Maybe<LeadFormSubmissions>>>;
-  leadFormSubmissionsConnection?: Maybe<LeadFormSubmissionsConnection>;
+  contactFormSubmission?: Maybe<ContactFormSubmissions>;
+  contactFormSubmissions?: Maybe<Array<Maybe<ContactFormSubmissions>>>;
+  contactFormSubmissionsConnection?: Maybe<ContactFormSubmissionsConnection>;
   page?: Maybe<Page>;
   pages?: Maybe<Array<Maybe<Page>>>;
   pagesConnection?: Maybe<PageConnection>;
@@ -1667,13 +1738,13 @@ export type QueryGlobalArgs = {
 };
 
 
-export type QueryLeadFormSubmissionArgs = {
+export type QueryContactFormSubmissionArgs = {
   id: Scalars['ID'];
   publicationState?: Maybe<PublicationState>;
 };
 
 
-export type QueryLeadFormSubmissionsArgs = {
+export type QueryContactFormSubmissionsArgs = {
   sort?: Maybe<Scalars['String']>;
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
@@ -1682,7 +1753,7 @@ export type QueryLeadFormSubmissionsArgs = {
 };
 
 
-export type QueryLeadFormSubmissionsConnectionArgs = {
+export type QueryContactFormSubmissionsConnectionArgs = {
   sort?: Maybe<Scalars['String']>;
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
@@ -1781,9 +1852,9 @@ export type Mutation = {
   __typename?: 'Mutation';
   updateGlobal?: Maybe<UpdateGlobalPayload>;
   deleteGlobal?: Maybe<DeleteGlobalPayload>;
-  createLeadFormSubmission?: Maybe<CreateLeadFormSubmissionPayload>;
-  updateLeadFormSubmission?: Maybe<UpdateLeadFormSubmissionPayload>;
-  deleteLeadFormSubmission?: Maybe<DeleteLeadFormSubmissionPayload>;
+  createContactFormSubmission?: Maybe<CreateContactFormSubmissionPayload>;
+  updateContactFormSubmission?: Maybe<UpdateContactFormSubmissionPayload>;
+  deleteContactFormSubmission?: Maybe<DeleteContactFormSubmissionPayload>;
   createPage?: Maybe<CreatePagePayload>;
   updatePage?: Maybe<UpdatePagePayload>;
   deletePage?: Maybe<DeletePagePayload>;
@@ -1825,18 +1896,18 @@ export type MutationDeleteGlobalArgs = {
 };
 
 
-export type MutationCreateLeadFormSubmissionArgs = {
-  input?: Maybe<CreateLeadFormSubmissionInput>;
+export type MutationCreateContactFormSubmissionArgs = {
+  input?: Maybe<CreateContactFormSubmissionInput>;
 };
 
 
-export type MutationUpdateLeadFormSubmissionArgs = {
-  input?: Maybe<UpdateLeadFormSubmissionInput>;
+export type MutationUpdateContactFormSubmissionArgs = {
+  input?: Maybe<UpdateContactFormSubmissionInput>;
 };
 
 
-export type MutationDeleteLeadFormSubmissionArgs = {
-  input?: Maybe<DeleteLeadFormSubmissionInput>;
+export type MutationDeleteContactFormSubmissionArgs = {
+  input?: Maybe<DeleteContactFormSubmissionInput>;
 };
 
 
