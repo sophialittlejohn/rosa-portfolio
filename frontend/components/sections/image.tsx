@@ -7,7 +7,7 @@ type ImageSectionProps = {
 
 const ImageSection = ({ data }: ImageSectionProps) => {
   return (
-    <section className="w-1/2 mx-auto md:mx-2.5">
+    <section className="w-1/2 md:w-3/4 mx-auto md:mx-2.5">
       {/* @ts-ignore */}
       <NextImage media={data.image} />
     </section>

@@ -11,7 +11,7 @@ const RichText = ({ data, pageColor }: RichTextProps) => {
   return (
     <section
       className={classNames(
-        `prose-sm lg:prose-lg py-12 w-3/4 mx-auto`,
+        `prose-sm lg:prose-lg py-12 w-full mx-auto`,
         { "text-center": data.alignment === "center" },
         { "dark:prose": pageColor === "dark" },
         { prose: pageColor === "light" },

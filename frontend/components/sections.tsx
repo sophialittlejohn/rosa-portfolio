@@ -71,21 +71,27 @@ type SectionsProps = {
   pageColor?: string;
 };
 
-// Display the list of sections
-const Sections = ({ sections, preview, layout, pageColor }: SectionsProps) => {
-  const flexDirection =
-    layout === "horizontal" ? "md:flex-row md:space-x-20" : "";
+const layoutStyles = {
+  common: "grid justify-center",
+  vertical: "flex flex-col items-center content-center space-y-10",
+  horizontal: "grid-cols-1 md:grid-cols-2 gap-4",
+};
 
+// Display the list of sections
+const Sections = ({
+  sections,
+  preview,
+  layout = "vertical",
+  pageColor,
+}: SectionsProps) => {
   const { asPath } = useRouter();
   const fullscreen = !!asPath.includes("work/");
 
   return (
     <main
-      className={classNames(
-        "flex flex-col items-center content-center space-y-10",
-        flexDirection,
-        { "h-full": fullscreen }
-      )}
+      className={classNames(layoutStyles.common, layoutStyles[layout], {
+        "h-full": fullscreen,
+      })}
     >
       {/* Show a banner if preview mode is on */}
       {preview && <PreviewModeBanner />}

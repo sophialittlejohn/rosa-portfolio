@@ -13,7 +13,7 @@ type ImagesPanelProps = {
 export const ImagesPanel = ({ data }: ImagesPanelProps) => {
   return (
     <section className="w-screen px-6">
-      <div className="w-full flex flex-col md:flex-row gap-2">
+      <div className="w-full flex flex-col md:flex-row gap-12 md:gap-2 flex-wrap md:flex-nowrap">
         {data?.images?.map((image) => {
           const { url, id, _id, text } = image as ComponentLinksLink;
           return (

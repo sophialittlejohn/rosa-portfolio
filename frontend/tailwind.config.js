@@ -22,13 +22,14 @@ module.exports = {
         DEFAULT: {
           css: {
             p: {
-              color: "initial"
+              textColor: "#3E3025",
             },
             h2: {
               fontSize: "24px",
               fontWeight: "400",
               lineHeight: "36px",
               marginBottom: "8px",
+              color: "var(--color-accent)",
             },
             h3: {
               fontSize: "24px",
@@ -43,7 +44,7 @@ module.exports = {
             p: {
               fontWeight: "normal",
               fontSize: "20px",
-              lineHeight: "24px",
+              lineHeight: "32px",
               letterSpacing: "0.08em",
             },
             h1: {
@@ -56,7 +57,7 @@ module.exports = {
             p: {
               fontWeight: "normal",
               fontSize: "20px",
-              lineHeight: "24px",
+              lineHeight: "32px",
               letterSpacing: "0.08em",
             },
             h1: {
@@ -68,6 +69,15 @@ module.exports = {
         dark: {
           css: {
             DEFAULT: {
+              textColor: "var(--color-primaryB)",
+            },
+            sm: {
+              textColor: "var(--color-primaryB)",
+            },
+            md: {
+              textColor: "var(--color-primaryB)",
+            },
+            lg: {
               textColor: "var(--color-primaryB)",
             }
           }

@@ -4,6 +4,7 @@
   :root {
     --color-lightGray: #eeeeee;
     --color-blackish: #3e3025;
+    --color-accent: #2A00A1;
   }
   html {
     box-sizing: border-box;
