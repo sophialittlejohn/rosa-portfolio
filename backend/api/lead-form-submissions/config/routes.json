@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/lead-form-submissions",
-      "handler": "lead-form-submissions.find",
+      "path": "/contact-form-submissions",
+      "handler": "contact-form-submissions.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/lead-form-submissions/count",
-      "handler": "lead-form-submissions.count",
+      "path": "/contact-form-submissions/count",
+      "handler": "contact-form-submissions.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/lead-form-submissions/:id",
-      "handler": "lead-form-submissions.findOne",
+      "path": "/contact-form-submissions/:id",
+      "handler": "contact-form-submissions.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/lead-form-submissions",
-      "handler": "lead-form-submissions.create",
+      "path": "/contact-form-submissions",
+      "handler": "contact-form-submissions.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/lead-form-submissions/:id",
-      "handler": "lead-form-submissions.update",
+      "path": "/contact-form-submissions/:id",
+      "handler": "contact-form-submissions.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/lead-form-submissions/:id",
-      "handler": "lead-form-submissions.delete",
+      "path": "/contact-form-submissions/:id",
+      "handler": "contact-form-submissions.delete",
       "config": {
         "policies": []
       }

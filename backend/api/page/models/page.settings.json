@@ -39,13 +39,13 @@
       "type": "dynamiczone",
       "components": [
         "sections.hero",
-        "sections.feature-columns-group",
-        "sections.feature-rows-group",
         "sections.rich-text",
-        "sections.lead-form",
         "sections.image",
         "sections.gallery",
-        "sections.images-panel"
+        "sections.images-panel",
+        "sections.form",
+        "sections.feature-rows-group",
+        "sections.feature-columns-group"
       ],
       "pluginOptions": {
         "i18n": {

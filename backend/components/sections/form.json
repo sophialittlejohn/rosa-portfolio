@@ -1,25 +1,24 @@
 {
-  "collectionName": "components_sections_lead_forms",
+  "collectionName": "components_sections_forms",
   "info": {
-    "name": "ContactForm",
-    "icon": "at",
+    "name": "Form",
+    "icon": "address-card",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "inputs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.input-field"
     },
-    "emailPlaceholder": {
+    "title": {
       "type": "string"
     },
     "submitButton": {
       "type": "component",
       "repeatable": false,
       "component": "links.button"
-    },
-    "location": {
-      "type": "string"
     }
   }
 }

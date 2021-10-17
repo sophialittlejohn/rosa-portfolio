@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "lead_form_submissions",
+  "collectionName": "contact_form_submissions",
   "info": {
-    "name": "LeadFormSubmissions",
+    "name": "ContactFormSubmissions",
     "description": ""
   },
   "options": {
@@ -10,6 +10,7 @@
     "timestamps": true,
     "draftAndPublish": false
   },
+  "pluginOptions": {},
   "attributes": {
     "email": {
       "type": "string"

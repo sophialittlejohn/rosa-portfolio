@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_elements_input_fields",
+  "info": {
+    "name": "InputField",
+    "icon": "comment-dots",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "email",
+        "textarea"
+      ],
+      "default": "text"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "width": {
+      "type": "integer",
+      "min": 20,
+      "max": 100,
+      "default": 100
+    }
+  }
+}
