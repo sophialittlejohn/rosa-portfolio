@@ -1362,6 +1362,9 @@ export type ComponentLinksLink = {
   newTab?: Maybe<Scalars['Boolean']>;
   text: Scalars['String'];
   image?: Maybe<UploadFile>;
+  heading?: Maybe<Scalars['String']>;
+  subheading?: Maybe<Scalars['String']>;
+  rounded?: Maybe<Scalars['Boolean']>;
 };
 
 export type ComponentLinksLinkInput = {
@@ -1369,6 +1372,9 @@ export type ComponentLinksLinkInput = {
   newTab?: Maybe<Scalars['Boolean']>;
   text: Scalars['String'];
   image?: Maybe<Scalars['ID']>;
+  heading?: Maybe<Scalars['String']>;
+  subheading?: Maybe<Scalars['String']>;
+  rounded?: Maybe<Scalars['Boolean']>;
 };
 
 export type EditComponentLinksLinkInput = {
@@ -1377,6 +1383,9 @@ export type EditComponentLinksLinkInput = {
   newTab?: Maybe<Scalars['Boolean']>;
   text?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['ID']>;
+  heading?: Maybe<Scalars['String']>;
+  subheading?: Maybe<Scalars['String']>;
+  rounded?: Maybe<Scalars['Boolean']>;
 };
 
 export type ComponentMetaMetadata = {
@@ -1459,12 +1468,14 @@ export type ComponentSectionsForm = {
   inputs?: Maybe<Array<Maybe<ComponentElementsInputField>>>;
   title?: Maybe<Scalars['String']>;
   submitButton?: Maybe<ComponentLinksButton>;
+  responseCollection?: Maybe<Scalars['String']>;
 };
 
 export type ComponentSectionsFormInput = {
   inputs?: Maybe<Array<Maybe<ComponentElementsInputFieldInput>>>;
   title?: Maybe<Scalars['String']>;
   submitButton?: Maybe<ComponentLinksButtonInput>;
+  responseCollection?: Maybe<Scalars['String']>;
 };
 
 export type EditComponentSectionsFormInput = {
@@ -1472,6 +1483,7 @@ export type EditComponentSectionsFormInput = {
   inputs?: Maybe<Array<Maybe<EditComponentElementsInputFieldInput>>>;
   title?: Maybe<Scalars['String']>;
   submitButton?: Maybe<EditComponentLinksButtonInput>;
+  responseCollection?: Maybe<Scalars['String']>;
 };
 
 export type ComponentSectionsGallery = {

@@ -5,6 +5,8 @@ import {
 
 import CustomLink from "../elements/custom-link";
 import { NextImage } from "../elements/image";
+import classNames from "classnames";
+import { Fragment } from "react";
 
 type ImagesPanelProps = {
   data: ComponentSectionsImagesPanel;
@@ -13,22 +15,57 @@ type ImagesPanelProps = {
 export const ImagesPanel = ({ data }: ImagesPanelProps) => {
   return (
     <section className="w-screen px-6">
-      <div className="w-full flex flex-col md:flex-row gap-12 md:gap-2 flex-wrap md:flex-nowrap">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 md:gap-2 flex-wrap md:flex-nowrap">
         {data?.images?.map((image) => {
-          const { url, id, _id, text } = image as ComponentLinksLink;
+          const { url, id, _id, text, newTab } = image as ComponentLinksLink;
+          const imageStyles = image?.rounded
+            ? {
+                width: 256,
+                height: 256,
+                classNames: "rounded-full absolute w-full",
+              }
+            : {};
           return (
-            <>
-              <CustomLink key={id} link={{ url, id, _id, text }}>
+            <Fragment key={image?._id}>
+              <CustomLink
+                key={id}
+                link={{ url, id, _id, text, newTab }}
+                styles="w-full mx-auto flex items-center justify-center flex-col"
+              >
                 {image?.image && (
-                  <div className="w-full relative">
-                    <NextImage media={image.image} />
-                    <div className="w-full h-full top-0 hover:bg-gray-300 bg-opacity-0 transition-colors hover:bg-opacity-70 text-black font-bold text-2xl shadow-md text-opacity-0 hover:text-opacity-100 absolute uppercase flex items-center justify-center">
+                  <div
+                    className={classNames("relative mx-auto w-full", {
+                      "flex-col flex items-center": image.rounded,
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        `hidden md:flex items-center justify-center text-center absolute z-10 shadow-md hover:bg-gray-300 bg-opacity-0 transition-colors hover:bg-opacity-70 text-black font-bold text-2xl text-opacity-0 hover:text-opacity-100 uppercase`,
+                        {
+                          "rounded-full md:w-64 md:h-64 mx-auto": image.rounded,
+                          "w-full h-full": !image.rounded,
+                        }
+                      )}
+                    >
                       {text}
+                    </div>
+                    <NextImage media={image.image} {...imageStyles} />
+                    <div className="w-full text-center mt-14">
+                      {image?.heading && (
+                        <h2 className="text-lg font-normal italic">
+                          {image.heading}
+                        </h2>
+                      )}
+                      {image?.heading && (
+                        <h3 className="font-thin text-lg">
+                          {image.subheading}
+                        </h3>
+                      )}
                     </div>
                   </div>
                 )}
               </CustomLink>
-            </>
+            </Fragment>
           );
         })}
       </div>

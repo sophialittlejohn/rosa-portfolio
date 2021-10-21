@@ -30,6 +30,15 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "rounded": {
+      "type": "boolean"
     }
   }
 }

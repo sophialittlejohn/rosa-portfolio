@@ -17,7 +17,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({
   if (isInternalLink) {
     return (
       <Link href="/[[...slug]]" as={link?.url} passHref>
-        <a>{children}</a>
+        <a className={styles}>{children}</a>
       </Link>
     );
   }

@@ -6,11 +6,13 @@ type NextImageProps = {
   width?: string | number;
   height?: string | number;
   format?: "thumbnail" | "small" | "medium";
+  classNames?: string;
 };
 
 export const NextImage = ({
   media,
   format = "small",
+  classNames,
   ...props
 }: NextImageProps) => {
   const img: UploadFile = media?.formats ? media?.formats[format] : media;
@@ -23,6 +25,7 @@ export const NextImage = ({
         // loader={loader}
         src={img?.url}
         alt={img?.alternativeText || ""}
+        className={classNames}
         {...props}
       />
     );
@@ -39,6 +42,7 @@ export const NextImage = ({
       objectFit="contain"
       src={img?.url}
       alt={img?.alternativeText || ""}
+      className={props.classNames}
     />
   );
 };
