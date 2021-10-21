@@ -42,7 +42,7 @@ export const NextImage = ({
       objectFit="contain"
       src={img?.url}
       alt={img?.alternativeText || ""}
-      className={props.classNames}
+      className={classNames}
     />
   );
 };
