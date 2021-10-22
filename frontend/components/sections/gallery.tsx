@@ -21,6 +21,7 @@ export const Gallery = ({ data }: GalleryProps) => {
           data.images.map((image) => {
             return (
               <div
+                key={image?.id}
                 className={classNames({
                   "w-screen": data.fullscreen,
                 })}
