@@ -39,7 +39,7 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
           })}
         </ul>
       </nav>
-      <div className="bg-white bg-opacity-5 md:absolute md:top-1/4 md:right-0 md:left-auto flex items-center justify-center my-6 md:my-auto md:mx-6">
+      <div className="md:absolute bg-transparent md:top-1/4 md:right-0 md:left-auto flex items-center justify-center my-6 md:my-auto md:mx-6">
         <CustomLink
           link={{ url: "/", id: "home", text: "", _id: "home" }}
           styles="h-full mx-auto w-auto"

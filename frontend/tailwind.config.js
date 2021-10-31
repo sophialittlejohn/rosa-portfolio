@@ -27,7 +27,7 @@ module.exports = {
               textColor: "#3E3025",
             },
             h2: {
-              fontSize: "24px",
+              fontSize: "20px",
               fontWeight: "400",
               lineHeight: "36px",
               marginBottom: "8px",
@@ -40,7 +40,8 @@ module.exports = {
               marginBottom: "20px",
             },
             thead: {
-              borderColor: "transparent"
+              borderColor: "transparent",
+              display: "none"
             },
             tr: {
               borderWidth: "0 !important",
@@ -54,26 +55,29 @@ module.exports = {
           css: {
             p: {
               fontWeight: "normal",
-              fontSize: "20px",
-              lineHeight: "32px",
+              fontSize: "14px",
+              lineHeight: "20px",
               letterSpacing: "0.08em",
             },
             h1: {
               marginBottom: "0px",
             },
+            h2: {
+              fontSize: "20px"
+            },
             tr: {
               fontWeight: "normal",
-              fontSize: "20px",
-              lineHeight: "32px",
+              lineHeight: "24px",
               letterSpacing: "0.08em",
               borderWidth: "0",
+              fontSize: "14px",
             },
             td: {
               py: 0
             }
           },
         },
-        lg: {
+        md: {
           css: {
             p: {
               fontWeight: "normal",
@@ -84,12 +88,16 @@ module.exports = {
             h1: {
               marginBottom: "1rem",
             },
+            h2: {
+              fontSize: "24px"
+            },
             tr: {
               fontWeight: "normal",
               fontSize: "20px",
               lineHeight: "32px",
               letterSpacing: "0.08em",
               borderWidth: "0",
+              fontSize: "20px",
             },
             td: {
               py: 0

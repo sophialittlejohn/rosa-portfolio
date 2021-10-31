@@ -15,7 +15,7 @@ type ImagesPanelProps = {
 export const ImagesPanel = ({ data }: ImagesPanelProps) => {
   return (
     <section className="w-screen px-6">
-      <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-0 md:gap-2 flex-wrap md:flex-nowrap">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-0 gap-y-8 md:gap-2 flex-wrap md:flex-nowrap">
         {data?.images?.map((image) => {
           const { url, id, _id, text, newTab } = image as ComponentLinksLink;
           const imageStyles = image?.rounded
@@ -52,7 +52,7 @@ export const ImagesPanel = ({ data }: ImagesPanelProps) => {
                       {text}
                     </div>
                     <NextImage media={image.image} {...imageStyles} />
-                    <div className="w-full text-center mt-14">
+                    <div className="w-full text-center mt-6 md:mt-14">
                       {image?.heading && (
                         <h2 className="text-lg font-normal italic">
                           {image.heading}
