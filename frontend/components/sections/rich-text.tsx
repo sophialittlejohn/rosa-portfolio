@@ -1,6 +1,7 @@
 import { ComponentSectionsRichText } from "../../utils/@types/strapi";
 import Markdown from "react-markdown";
 import classNames from "classnames";
+import remarkGfm from "remark-gfm";
 
 type RichTextProps = {
   data: ComponentSectionsRichText;
@@ -21,7 +22,9 @@ const RichText = ({ data, pageColor }: RichTextProps) => {
         }
       )}
     >
-      {data?.content && <Markdown children={data.content} />}
+      {data?.content && (
+        <Markdown children={data.content} remarkPlugins={[remarkGfm]} />
+      )}
     </section>
   );
 };
