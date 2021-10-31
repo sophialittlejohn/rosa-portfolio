@@ -4,9 +4,9 @@ import {
 } from "../../utils/@types/strapi";
 
 import CustomLink from "../elements/custom-link";
+import { Fragment } from "react";
 import { NextImage } from "../elements/image";
 import classNames from "classnames";
-import { Fragment } from "react";
 
 type ImagesPanelProps = {
   data: ComponentSectionsImagesPanel;
@@ -15,7 +15,7 @@ type ImagesPanelProps = {
 export const ImagesPanel = ({ data }: ImagesPanelProps) => {
   return (
     <section className="w-screen px-6">
-      <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 md:gap-2 flex-wrap md:flex-nowrap">
+      <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-0 md:gap-2 flex-wrap md:flex-nowrap">
         {data?.images?.map((image) => {
           const { url, id, _id, text, newTab } = image as ComponentLinksLink;
           const imageStyles = image?.rounded

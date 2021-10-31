@@ -74,7 +74,7 @@ type SectionsProps = {
 const layoutStyles = {
   common: "grid justify-center",
   vertical: "flex flex-col items-center content-center space-y-10",
-  horizontal: "grid-cols-1 md:grid-cols-2 gap-4",
+  horizontal: "grid-cols-1 md:grid-cols-2 gap-4 px-4 md:px:0",
 };
 
 // Display the list of sections
