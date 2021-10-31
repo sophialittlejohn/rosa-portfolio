@@ -7,9 +7,12 @@ import { useRouter } from "next/router";
 type NavBarProps = {
   navbar: ComponentLayoutNavbar;
   logo: any;
+  logoDark: any;
+  configuration: Record<any, any>;
 };
 
-const Navbar = ({ navbar, logo }: NavBarProps) => {
+const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
+  const currentLogo = configuration.pageColor === "dark" ? logoDark : logo;
   const { asPath } = useRouter();
   return (
     <div className="w-full inline-block relative">
@@ -41,7 +44,7 @@ const Navbar = ({ navbar, logo }: NavBarProps) => {
           link={{ url: "/", id: "home", text: "", _id: "home" }}
           styles="h-full mx-auto w-auto"
         >
-          {logo && <NextImage media={logo} height={60} width={60} />}
+          {logo && <NextImage media={currentLogo} height={60} width={60} />}
         </CustomLink>
       </div>
     </div>

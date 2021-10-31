@@ -22,7 +22,9 @@ export const ImagesPanel = ({ data }: ImagesPanelProps) => {
             ? {
                 width: 256,
                 height: 256,
-                classNames: "rounded-full absolute w-full",
+                classNames: "rounded-full w-full",
+                layout: "fixed",
+                objectPosition: "center top",
               }
             : {};
           return (

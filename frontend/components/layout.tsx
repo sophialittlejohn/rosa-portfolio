@@ -10,7 +10,7 @@ type LayoutProps = {
 
 const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
   // @ts-ignore
-  const { navbar, footer, logo } = global;
+  const { navbar, footer, logo, logoDark } = global;
 
   return (
     <div
@@ -25,7 +25,14 @@ const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
         )}
       >
         {/* Aligned to the top */}
-        {navbar && <Navbar navbar={navbar} logo={logo} />}
+        {navbar && (
+          <Navbar
+            navbar={navbar}
+            logo={logo}
+            configuration={configuration}
+            logoDark={logoDark}
+          />
+        )}
         {children}
         {/* Aligned to the bottom */}
         {footer && <Footer footer={footer} configuration={configuration} />}
