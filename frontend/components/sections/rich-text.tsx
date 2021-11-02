@@ -1,7 +1,6 @@
 import { ComponentSectionsRichText } from "../../utils/@types/strapi";
-import Markdown from "react-markdown";
+import { Markdown } from "../elements/markdown";
 import classNames from "classnames";
-import remarkGfm from "remark-gfm";
 
 type RichTextProps = {
   data: ComponentSectionsRichText;
@@ -12,7 +11,7 @@ const RichText = ({ data, pageColor }: RichTextProps) => {
   return (
     <section
       className={classNames(
-        `sm:prose-sm md:prose-md py-12 w-full mx-auto`,
+        `prose sm:prose-sm md:prose-md py-12 w-full mx-auto`,
         { "text-center": data.alignment === "center" },
         { "dark:prose": pageColor === "dark" },
         { prose: pageColor === "light" },
@@ -22,9 +21,7 @@ const RichText = ({ data, pageColor }: RichTextProps) => {
         }
       )}
     >
-      {data?.content && (
-        <Markdown children={data.content} remarkPlugins={[remarkGfm]} />
-      )}
+      {data?.content && <Markdown content={data.content} />}
     </section>
   );
 };

@@ -25,6 +25,10 @@ module.exports = {
           css: {
             p: {
               textColor: "#3E3025",
+              fontWeight: "normal",
+              fontSize: "14px",
+              lineHeight: "20px",
+              letterSpacing: "0.08em",
             },
             h2: {
               fontSize: "20px",
@@ -39,12 +43,21 @@ module.exports = {
               lineHeight: "36px",
               marginBottom: "20px",
             },
+            table: {
+              fontWeight: "normal",
+              lineHeight: "24px",
+              letterSpacing: "0.08em",
+              borderWidth: "0",
+              fontSize: "14px",
+            },
             thead: {
               borderColor: "transparent",
               display: "none"
             },
             tr: {
               borderWidth: "0 !important",
+              fontSize: "14px",
+              lineHeight: "20px",
             },
             td: {
               py: 0
@@ -65,16 +78,6 @@ module.exports = {
             h2: {
               fontSize: "20px"
             },
-            tr: {
-              fontWeight: "normal",
-              lineHeight: "24px",
-              letterSpacing: "0.08em",
-              borderWidth: "0",
-              fontSize: "14px",
-            },
-            td: {
-              py: 0
-            }
           },
         },
         md: {
@@ -92,19 +95,23 @@ module.exports = {
               fontSize: "24px"
             },
             tr: {
-              fontWeight: "normal",
               fontSize: "20px",
               lineHeight: "32px",
-              letterSpacing: "0.08em",
-              borderWidth: "0",
-              fontSize: "20px",
             },
-            td: {
-              py: 0
+          },
+        },
+        tight: {
+          css: {
+            p: {
+              fontWeight: "normal",
+              fontSize: "14px",
+              lineHeight: "18px",
+            },
+            strong: {
+              fontWeight: 600
             }
           }
         },
-
         dark: {
           css: {
             DEFAULT: {
@@ -120,7 +127,7 @@ module.exports = {
               textColor: "var(--color-primaryB)",
             }
           }
-        }
+        },
       }
     },
     fontFamily: {

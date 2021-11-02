@@ -84,6 +84,7 @@ export type Global = {
   navbar?: Maybe<ComponentLayoutNavbar>;
   footer?: Maybe<ComponentLayoutFooter>;
   logo?: Maybe<UploadFile>;
+  logoDark?: Maybe<UploadFile>;
   locale?: Maybe<Scalars['String']>;
   localizations?: Maybe<Array<Maybe<Global>>>;
 };
@@ -103,6 +104,7 @@ export type GlobalInput = {
   navbar?: Maybe<ComponentLayoutNavbarInput>;
   footer?: Maybe<ComponentLayoutFooterInput>;
   logo?: Maybe<Scalars['ID']>;
+  logoDark?: Maybe<Scalars['ID']>;
   localizations?: Maybe<Array<Maybe<Scalars['ID']>>>;
   locale?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
@@ -116,6 +118,7 @@ export type EditGlobalInput = {
   navbar?: Maybe<EditComponentLayoutNavbarInput>;
   footer?: Maybe<EditComponentLayoutFooterInput>;
   logo?: Maybe<Scalars['ID']>;
+  logoDark?: Maybe<Scalars['ID']>;
   localizations?: Maybe<Array<Maybe<Scalars['ID']>>>;
   locale?: Maybe<Scalars['String']>;
   created_by?: Maybe<Scalars['ID']>;
@@ -1528,17 +1531,23 @@ export type ComponentSectionsHero = {
   _id: Scalars['ID'];
   title?: Maybe<Scalars['String']>;
   picture?: Maybe<UploadFile>;
+  caption?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
 };
 
 export type ComponentSectionsHeroInput = {
   title?: Maybe<Scalars['String']>;
   picture?: Maybe<Scalars['ID']>;
+  caption?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
 };
 
 export type EditComponentSectionsHeroInput = {
   id?: Maybe<Scalars['ID']>;
   title?: Maybe<Scalars['String']>;
   picture?: Maybe<Scalars['ID']>;
+  caption?: Maybe<Scalars['String']>;
+  subtitle?: Maybe<Scalars['String']>;
 };
 
 export type ComponentSectionsImage = {
