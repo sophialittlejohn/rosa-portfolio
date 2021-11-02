@@ -1,43 +1,49 @@
-import classNames from "classnames";
 import { ComponentSectionsGallery } from "../../utils/@types/strapi";
 import { NextImage } from "../elements/image";
+import classNames from "classnames";
 
 type GalleryProps = { data: ComponentSectionsGallery };
 
 export const Gallery = ({ data }: GalleryProps) => {
   return (
-    <section className="text-center pb-28">
-      <div className="prose mx-auto mb-8">
+    <section className="w-full text-center pb-28 max-w-5xl">
+      <div className="prose sm:prose-sm md:prose-md mx-auto mb-8">
         {data?.title && <h2>{data.title}</h2>}
         {data?.subtitle && <h3>{data.subtitle}</h3>}
       </div>
       <div
-        className={classNames({
-          "grid grid-cols-2 w-full items-center justify-center content-center max-w-3xl mx-auto":
-            !data.fullscreen,
+        className={classNames("", {
+          "w-full mx-auto": !data.fullscreen,
         })}
       >
-        {data?.images &&
-          data.images.map((image) => {
+        {data?.rows &&
+          data.rows.map((row) => {
+            const cols = row?.pictures?.length || 0;
+            console.log("➜ ~ cols", cols);
             return (
               <div
-                key={image?.id}
-                className={classNames({
+                key={row?.id}
+                className={classNames("", {
                   "w-screen": data.fullscreen,
+                  "md:grid gap-x-1 md:gap-x-6": cols > 1,
+                  // "col-span-2": cols < 1,
                 })}
               >
-                {/* @ts-ignore */}
-                <NextImage media={image} />
-                {image?.caption && (
-                  <p className="py-4 text-2xl font-light">{image.caption}</p>
+                {row?.pictures?.map((picure) => {
+                  // @ts-ignore
+                  return <NextImage media={picure} format="medium" />;
+                })}
+                {row?.caption && (
+                  <div className="col-span-2 p-4 md:py-10">
+                    <span className="prose prose-tight md:prose-tightMd">
+                      <p className="">{row.caption}</p>
+                    </span>
+                  </div>
                 )}
               </div>
             );
           })}
       </div>
-      {data?.caption && (
-        <p className="font-light text-xl mt-8">{data.caption}</p>
-      )}
     </section>
   );
 };

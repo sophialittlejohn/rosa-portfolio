@@ -20,6 +20,9 @@ module.exports = {
       width: {
         xxxl: "800px"
       },
+      letterSpacing: {
+        p: "0.08em",
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -106,6 +109,18 @@ module.exports = {
               fontWeight: "normal",
               fontSize: "14px",
               lineHeight: "18px",
+            },
+            strong: {
+              fontWeight: 600
+            }
+          }
+        },
+        tightMd: {
+          css: {
+            p: {
+              fontWeight: "normal",
+              fontSize: "18px",
+              lineHeight: "24px",
             },
             strong: {
               fontWeight: 600

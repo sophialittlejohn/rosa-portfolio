@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_elements_gallery_rows",
+  "info": {
+    "name": "galleryRow",
+    "icon": "binoculars"
+  },
+  "options": {},
+  "attributes": {
+    "pictures": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "caption": {
+      "type": "string"
+    }
+  }
+}

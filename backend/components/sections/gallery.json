@@ -7,18 +7,6 @@
   },
   "options": {},
   "attributes": {
-    "images": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false,
-      "pluginOptions": {}
-    },
     "title": {
       "type": "string"
     },
@@ -29,8 +17,10 @@
     "subtitle": {
       "type": "string"
     },
-    "caption": {
-      "type": "string"
+    "rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.gallery-row"
     }
   }
 }

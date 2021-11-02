@@ -23,7 +23,10 @@ export const NextImage = ({
       <Image
         // @ts-ignore
         // loader={loader}
-        src={img?.url}
+        src={
+          img?.url ||
+          "https://res.cloudinary.com/coffee-grinder/image/upload/v1552904658/sample.jpg"
+        }
         alt={img?.alternativeText || ""}
         className={classNames}
         {...props}
@@ -40,7 +43,10 @@ export const NextImage = ({
       width={img?.width || 300}
       height={img?.height || 300}
       objectFit="contain"
-      src={img?.url}
+      src={
+        img?.url ||
+        "https://res.cloudinary.com/coffee-grinder/image/upload/v1552904658/sample.jpg"
+      }
       alt={img?.alternativeText || ""}
       className={classNames}
     />
