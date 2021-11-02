@@ -43,9 +43,7 @@
         "sections.image",
         "sections.gallery",
         "sections.images-panel",
-        "sections.form",
-        "sections.feature-rows-group",
-        "sections.feature-columns-group"
+        "sections.form"
       ],
       "pluginOptions": {
         "i18n": {

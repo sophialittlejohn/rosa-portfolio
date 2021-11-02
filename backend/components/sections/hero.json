@@ -19,6 +19,12 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "caption": {
+      "type": "richtext"
+    },
+    "subtitle": {
+      "type": "richtext"
     }
   }
 }
