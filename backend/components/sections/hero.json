@@ -25,6 +25,9 @@
     },
     "subtitle": {
       "type": "richtext"
+    },
+    "captionRight": {
+      "type": "boolean"
     }
   }
 }

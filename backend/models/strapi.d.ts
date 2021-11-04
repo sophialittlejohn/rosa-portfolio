@@ -1549,6 +1549,7 @@ export type ComponentSectionsHero = {
   picture?: Maybe<UploadFile>;
   caption?: Maybe<Scalars['String']>;
   subtitle?: Maybe<Scalars['String']>;
+  captionRight?: Maybe<Scalars['Boolean']>;
 };
 
 export type ComponentSectionsHeroInput = {
@@ -1556,6 +1557,7 @@ export type ComponentSectionsHeroInput = {
   picture?: Maybe<Scalars['ID']>;
   caption?: Maybe<Scalars['String']>;
   subtitle?: Maybe<Scalars['String']>;
+  captionRight?: Maybe<Scalars['Boolean']>;
 };
 
 export type EditComponentSectionsHeroInput = {
@@ -1564,6 +1566,7 @@ export type EditComponentSectionsHeroInput = {
   picture?: Maybe<Scalars['ID']>;
   caption?: Maybe<Scalars['String']>;
   subtitle?: Maybe<Scalars['String']>;
+  captionRight?: Maybe<Scalars['Boolean']>;
 };
 
 export type ComponentSectionsImage = {

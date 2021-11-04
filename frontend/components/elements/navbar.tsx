@@ -13,7 +13,7 @@ type NavBarProps = {
 
 const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
   const currentLogo = configuration.pageColor === "dark" ? logoDark : logo;
-  const { asPath } = useRouter();
+  const { asPath, query } = useRouter();
   return (
     <div className="w-full inline-block relative">
       <nav className="max-w-screen-xl">
@@ -26,7 +26,8 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
                     <div
                       className={classNames("text-lg md:text-2xl uppercase", {
                         "font-bold":
-                          asPath.slice(1) === navLink?.url ||
+                          // @ts-ignore
+                          query.slug[0] === navLink?.url.slice(1) ||
                           asPath === navLink?.url,
                       })}
                     >

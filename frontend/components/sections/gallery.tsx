@@ -28,15 +28,15 @@ export const Gallery = ({ data }: GalleryProps) => {
                 key={row?.id}
                 className={classNames("px-2 md:px-0", {
                   "w-screen": data.fullscreen,
-                  "space-y-2 md:space-y-0 md:grid gap-x-1 md:gap-x-6": cols > 1,
-                  // "col-span-2": cols < 1,
+                  "space-y-2 md:space-y-0 md:grid grid-cols-2 gap-x-1 md:gap-x-6 md:gap-y-6 pt-6":
+                    cols > 1,
+                  "pt-6": !data.fullscreen,
                 })}
               >
                 {row?.pictures?.map((picture) => {
                   return (
-                    <div>
+                    <div className="w-full" key={picture?._id || ""}>
                       <NextImage
-                        key={picture?._id || ""}
                         // @ts-ignore
                         media={picture}
                         format="medium"
