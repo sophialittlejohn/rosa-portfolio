@@ -6,7 +6,11 @@ type GalleryProps = { data: ComponentSectionsGallery };
 
 export const Gallery = ({ data }: GalleryProps) => {
   return (
-    <section className="w-full text-center pb-28 max-w-5xl">
+    <section
+      className={classNames("gallery w-full text-center pb-28 mx-auto", {
+        "max-w-5xl": !data.fullscreen,
+      })}
+    >
       <div className="prose sm:prose-sm md:prose-md mx-auto mb-8">
         {data?.title && <h2>{data.title}</h2>}
         {data?.subtitle && <h3>{data.subtitle}</h3>}
@@ -22,20 +26,22 @@ export const Gallery = ({ data }: GalleryProps) => {
             return (
               <div
                 key={row?.id}
-                className={classNames("", {
+                className={classNames("px-2 md:px-0", {
                   "w-screen": data.fullscreen,
-                  "md:grid gap-x-1 md:gap-x-6": cols > 1,
+                  "space-y-2 md:space-y-0 md:grid gap-x-1 md:gap-x-6": cols > 1,
                   // "col-span-2": cols < 1,
                 })}
               >
                 {row?.pictures?.map((picture) => {
                   return (
-                    <NextImage
-                      key={picture?._id || ""}
-                      // @ts-ignore
-                      media={picture}
-                      format="medium"
-                    />
+                    <div>
+                      <NextImage
+                        key={picture?._id || ""}
+                        // @ts-ignore
+                        media={picture}
+                        format="medium"
+                      />
+                    </div>
                   );
                 })}
                 {row?.caption && (
