@@ -19,7 +19,6 @@ export const Gallery = ({ data }: GalleryProps) => {
         {data?.rows &&
           data.rows.map((row) => {
             const cols = row?.pictures?.length || 0;
-            console.log("➜ ~ cols", cols);
             return (
               <div
                 key={row?.id}
@@ -29,9 +28,15 @@ export const Gallery = ({ data }: GalleryProps) => {
                   // "col-span-2": cols < 1,
                 })}
               >
-                {row?.pictures?.map((picure) => {
-                  // @ts-ignore
-                  return <NextImage media={picure} format="medium" />;
+                {row?.pictures?.map((picture) => {
+                  return (
+                    <NextImage
+                      key={picture?._id || ""}
+                      // @ts-ignore
+                      media={picture}
+                      format="medium"
+                    />
+                  );
                 })}
                 {row?.caption && (
                   <div className="col-span-2 p-4 md:py-10">
