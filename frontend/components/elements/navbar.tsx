@@ -19,6 +19,7 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
       <nav className="max-w-screen-xl">
         <ul className="flex content-center justify-center pt-7 sm:pt-14 sm:mb-6 md:mb-20 w-full gap-4 md:gap-6">
           {navbar?.links?.map((navLink) => {
+            const navPath = asPath.slice(1).split("/")[0];
             return (
               <li key={`${navLink?.id}${Math.random()}`}>
                 {navLink && (
@@ -27,7 +28,7 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
                       className={classNames("text-lg md:text-2xl uppercase", {
                         "font-bold":
                           // @ts-ignore
-                          query.slug[0] === navLink?.url.slice(1) ||
+                          navPath === navLink?.url.slice(1) ||
                           asPath === navLink?.url,
                       })}
                     >
