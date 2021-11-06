@@ -42,8 +42,8 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
         "bg-primaryA": configuration.pageColor === "light",
       })}
     >
-      <nav className="max-w-screen-xl sticky bottom-0">
-        <ul className="flex content-center justify-center pt-7 sm:pt-14 sm:mb-6 md:mb-10 w-full gap-4 md:gap-6">
+      <nav className="max-w-screen-xl w-full mx-auto">
+        <ul className="flex content-center justify-center pt-7 sm:pt-14 sm:mb-6 md:mb-10 w-full gap-4 md:gap-6 mx-auto">
           {navbar?.links?.map((navLink) => {
             const navPath = asPath.slice(1).split("/")[0];
             return (
