@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+
 import { ComponentLayoutNavbar } from "../../utils/@types/strapi";
 import CustomLink from "./custom-link";
 import { NextImage } from "./image";
@@ -12,12 +14,36 @@ type NavBarProps = {
 };
 
 const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
   const currentLogo = configuration.pageColor === "dark" ? logoDark : logo;
-  const { asPath, query } = useRouter();
+  const { asPath } = useRouter();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY < 1) {
+        scrollRef.current?.classList.remove("shadow-md");
+        // logoRef.current?.classList.remove("-top-20", "absolute");
+      } else {
+        scrollRef.current?.classList.add("shadow-md");
+        // logoRef.current?.classList.add("-top-20", "absolute");
+      }
+    });
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
+  }, []);
+
   return (
-    <div className="w-full inline-block relative">
-      <nav className="max-w-screen-xl">
-        <ul className="flex content-center justify-center pt-7 sm:pt-14 sm:mb-6 md:mb-20 w-full gap-4 md:gap-6">
+    <div
+      ref={scrollRef}
+      className={classNames("w-full sticky -top-2 z-20 transition-shadow", {
+        "bg-primaryB text-white": configuration.pageColor === "dark",
+        "bg-primaryA": configuration.pageColor === "light",
+      })}
+    >
+      <nav className="max-w-screen-xl sticky bottom-0">
+        <ul className="flex content-center justify-center pt-7 sm:pt-14 sm:mb-6 md:mb-10 w-full gap-4 md:gap-6">
           {navbar?.links?.map((navLink) => {
             const navPath = asPath.slice(1).split("/")[0];
             return (
@@ -41,12 +67,17 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
           })}
         </ul>
       </nav>
-      <div className="md:absolute bg-transparent md:top-1/4 md:right-0 md:left-auto flex items-center justify-center my-6 md:my-auto md:mx-6">
+      <div
+        ref={logoRef}
+        className="relative md:absolute transition-all bg-transparent md:top-1/4 md:right-0 md:left-auto flex items-center justify-center my-6 md:my-auto md:mx-6"
+      >
         <CustomLink
           link={{ url: "/", id: "home", text: "", _id: "home" }}
           styles="h-full mx-auto w-auto"
         >
-          {logo && <NextImage media={currentLogo} height={60} width={60} />}
+          {currentLogo && (
+            <NextImage media={currentLogo} height={60} width={60} />
+          )}
         </CustomLink>
       </div>
     </div>

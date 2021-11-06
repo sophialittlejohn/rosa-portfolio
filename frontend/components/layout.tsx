@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
     >
       <div
         className={classNames(
-          "flex flex-col justify-between max-w-5xl mx-auto min-h-screen"
+          "w-full flex flex-col justify-between mx-auto min-h-screen"
         )}
       >
         {/* Aligned to the top */}
@@ -33,9 +33,11 @@ const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
             logoDark={logoDark}
           />
         )}
-        {children}
+        <div className="max-w-5xl mx-auto">{children}</div>
         {/* Aligned to the bottom */}
-        {footer && <Footer footer={footer} configuration={configuration} />}
+        <div className="max-w-5xl mx-auto">
+          {footer && <Footer footer={footer} configuration={configuration} />}
+        </div>
       </div>
     </div>
   );

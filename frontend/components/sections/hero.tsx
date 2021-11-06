@@ -11,12 +11,12 @@ type HeroProps = {
 const Hero = ({ data }: HeroProps) => {
   const { asPath } = useRouter();
 
-  const isHome = asPath === "/";
-  const styles = isHome ? "md:w-1/3" : "";
-
   return (
     <section
-      className={`container flex items-center mt-6 md:mt-0 ${styles} mx-auto md:pb-40`}
+      className={classNames(
+        `container flex items-center mt-6 mx-auto md:pb-40`,
+        { "md:w-1/3": asPath === "/" }
+      )}
     >
       <div className="w-full mx-auto text-center max-w-3xl">
         <div className="prose prose-sm md:prose-md mx-auto text-center mb-10 px-4">
