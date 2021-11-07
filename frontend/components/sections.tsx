@@ -1,4 +1,5 @@
 import BottomActions from "../components/sections/bottom-actions";
+import { BreadCrumbs } from "./breadcrumbs";
 import FeatureColumnsGroup from "../components/sections/feature-columns-group";
 import FeatureRowsGroup from "../components/sections/feature-rows-group";
 import Form from "./sections/form";
@@ -69,6 +70,7 @@ type SectionsProps = {
   preview: boolean;
   layout?: "horizontal" | "vertical";
   pageColor?: string;
+  slug: "string";
 };
 
 const layoutStyles = {
@@ -87,22 +89,25 @@ const Sections = ({
   const fullscreen = !!asPath.includes("work/");
 
   return (
-    <main
-      className={classNames(layoutStyles.common, layoutStyles[layout], {
-        "h-full": fullscreen,
-      })}
-    >
-      {/* Show a banner if preview mode is on */}
-      {preview && <PreviewModeBanner />}
-      {/* Show the actual sections */}
-      {sections.map((section) => (
-        <Section
-          sectionData={section}
-          // @ts-ignore
-          key={`${section.__component}${section.id}`}
-          pageColor={pageColor}
-        />
-      ))}
+    <main>
+      <BreadCrumbs />
+      <div
+        className={classNames(layoutStyles.common, layoutStyles[layout], {
+          "h-full": fullscreen,
+        })}
+      >
+        {/* Show a banner if preview mode is on */}
+        {preview && <PreviewModeBanner />}
+        {/* Show the actual sections */}
+        {sections.map((section) => (
+          <Section
+            sectionData={section}
+            // @ts-ignore
+            key={`${section.__component}${section.id}`}
+            pageColor={pageColor}
+          />
+        ))}
+      </div>
     </main>
   );
 };
