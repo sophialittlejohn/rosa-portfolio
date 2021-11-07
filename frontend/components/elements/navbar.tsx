@@ -23,10 +23,8 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
     window.addEventListener("scroll", () => {
       if (window.scrollY < 1) {
         scrollRef.current?.classList.remove("shadow-md");
-        // logoRef.current?.classList.remove("-top-20", "absolute");
       } else {
         scrollRef.current?.classList.add("shadow-md");
-        // logoRef.current?.classList.add("-top-20", "absolute");
       }
     });
     return () => {
@@ -35,52 +33,61 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
   }, []);
 
   return (
-    <div
-      ref={scrollRef}
-      className={classNames("w-full sticky -top-2 z-20 transition-shadow", {
-        "bg-primaryB text-white": configuration.pageColor === "dark",
-        "bg-primaryA": configuration.pageColor === "light",
-      })}
-    >
-      <nav className="max-w-screen-xl w-full mx-auto">
-        <ul className="flex content-center justify-center pt-7 sm:pt-14 sm:mb-6 md:mb-10 w-full gap-4 md:gap-6 mx-auto">
-          {navbar?.links?.map((navLink) => {
-            const navPath = asPath.slice(1).split("/")[0];
-            return (
-              <li key={`${navLink?.id}${Math.random()}`}>
-                {navLink && (
-                  <CustomLink link={navLink}>
-                    <div
-                      className={classNames("text-lg md:text-2xl uppercase", {
-                        "font-bold":
-                          // @ts-ignore
-                          navPath === navLink?.url.slice(1) ||
-                          asPath === navLink?.url,
-                      })}
-                    >
-                      {navLink?.text}
-                    </div>
-                  </CustomLink>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+    <>
       <div
-        ref={logoRef}
-        className="relative md:absolute transition-all bg-transparent md:top-1/4 md:right-0 md:left-auto flex items-center justify-center my-6 md:my-auto md:mx-6"
+        ref={scrollRef}
+        className={classNames(
+          "w-full sticky -top-2 z-20 transition-shadow overflow-hidden",
+          {
+            "bg-primaryB text-white": configuration.pageColor === "dark",
+            "bg-primaryA": configuration.pageColor === "light",
+          }
+        )}
       >
-        <CustomLink
-          link={{ url: "/", id: "home", text: "", _id: "home" }}
-          styles="h-full mx-auto w-auto"
-        >
-          {currentLogo && (
-            <NextImage media={currentLogo} height={60} width={60} />
-          )}
-        </CustomLink>
+        <nav className="max-w-screen-xl w-full mx-auto">
+          <ul className="flex content-center justify-center pb-6 md:pb-0 pt-7 sm:pt-14 sm:mb-6 md:mb-10 w-full gap-4 md:gap-6 mx-auto">
+            {navbar?.links?.map((navLink) => {
+              const navPath = asPath.slice(1).split("/")[0];
+              return (
+                <li key={`${navLink?.id}${Math.random()}`}>
+                  {navLink && (
+                    <CustomLink link={navLink}>
+                      <div
+                        className={classNames("text-lg md:text-2xl uppercase", {
+                          "font-bold":
+                            // @ts-ignore
+                            navPath === navLink?.url.slice(1) ||
+                            asPath === navLink?.url,
+                        })}
+                      >
+                        {navLink?.text}
+                      </div>
+                    </CustomLink>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       </div>
-    </div>
+      <div>
+        <div
+          ref={logoRef}
+          className={classNames(
+            "sticky md:fixed md:z-20 scale-y-100 transition-all bg-transparent top-16 right-1/2 md:top-6 md:right-6 md:left-auto flex items-center justify-center my-6 md:my-auto md:mx-6"
+          )}
+        >
+          <CustomLink
+            link={{ url: "/", id: "home", text: "", _id: "home" }}
+            styles="h-full mx-auto w-auto"
+          >
+            {currentLogo && (
+              <NextImage media={currentLogo} height={60} width={60} />
+            )}
+          </CustomLink>
+        </div>
+      </div>
+    </>
   );
 };
 

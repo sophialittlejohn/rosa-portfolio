@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
     >
       <div
         className={classNames(
-          "w-full flex flex-col justify-between mx-auto min-h-screen"
+          "w-full flex flex-col justify-between mx-auto min-h-screen relative"
         )}
       >
         {/* Aligned to the top */}
