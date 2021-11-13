@@ -38,7 +38,10 @@ export const BreadCrumbs = () => {
     );
   } else if (query.slug?.length === 2) {
     return (
-      <a className="underline tracking-p cursor-pointer" onClick={back}>
+      <a
+        className="tracking-p cursor-pointer ml-2 border-b pb-1"
+        onClick={back}
+      >
         {"< Back"}
       </a>
     );
