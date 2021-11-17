@@ -23,6 +23,7 @@ Editing content types in the CMS is only possible in development mode (locally).
 
 Environment variables can be found at [Cloudinary](https://cloudinary.com/console/c-b8caed343b64747bcc3511a413d883) and [Mongo Atlas](https://cloud.mongodb.com/v2/611a966c85c2bd3a4ab52821#clusters)
 
+```
 HOST=0.0.0.0
 PORT=1337
 DATABASE_FILENAME=""
@@ -31,4 +32,4 @@ DATABASE_NAME=xxx
 CLOUDINARY_NAME=xxx
 CLOUDINARY_KEY=xxx
 CLOUDINARY_SECRET=xxx
-
+```
