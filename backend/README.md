@@ -2,7 +2,7 @@
 
 Backend is deployed on Heruko.
 
-App name: (rosa-cms)[https://dashboard.heroku.com/apps/rosa-cms/]
+App name: [rosa-cms](https://dashboard.heroku.com/apps/rosa-cms/)
 
 Before starting, make sure you're in the backend directory
 
