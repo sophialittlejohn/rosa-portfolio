@@ -93,12 +93,12 @@ const Sections = ({
   return (
     <main>
       {/* Show a banner if preview mode is on */}
+      <BreadCrumbs />
       <div
         className={classNames(layoutStyles.common, layoutStyles[layout], {
           "h-full": fullscreen,
         })}
       >
-        <BreadCrumbs />
         {preview && <PreviewModeBanner />}
         {/* Show the actual sections */}
         {sections.map((section) => (
