@@ -26,7 +26,6 @@ Environment variables can be found at [Cloudinary](https://cloudinary.com/consol
 ```
 HOST=0.0.0.0
 PORT=1337
-DATABASE_FILENAME=""
 DATABASE_URI=xxx
 DATABASE_NAME=xxx
 CLOUDINARY_NAME=xxx

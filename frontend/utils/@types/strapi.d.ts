@@ -1576,12 +1576,14 @@ export type ComponentSectionsImage = {
   image?: Maybe<UploadFile>;
   alt?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type ComponentSectionsImageInput = {
   image?: Maybe<Scalars['ID']>;
   alt?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type EditComponentSectionsImageInput = {
@@ -1589,6 +1591,7 @@ export type EditComponentSectionsImageInput = {
   image?: Maybe<Scalars['ID']>;
   alt?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type ComponentSectionsImagesPanel = {
