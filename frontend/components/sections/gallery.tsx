@@ -40,6 +40,7 @@ export const Gallery = ({ data }: GalleryProps) => {
                         // @ts-ignore
                         media={picture}
                         format="medium"
+                        layout="fixed"
                       />
                     </div>
                   );

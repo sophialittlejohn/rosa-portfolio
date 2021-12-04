@@ -13,7 +13,7 @@ const RichText = ({ data, pageColor }: RichTextProps) => {
       className={classNames(
         `sm:prose-sm md:prose-md py-12 w-full mx-auto`,
         { "text-center": data.alignment === "center" },
-        { "dark:prose": pageColor === "dark" },
+        { "prose-dark": pageColor === "dark" },
         { prose: pageColor === "light" },
         {
           "h-fullscreen flex items-center flex-col justify-center pb-28":

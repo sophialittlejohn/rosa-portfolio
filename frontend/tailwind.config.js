@@ -1,24 +1,24 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class', // or 'media' or 'false'
+  mode: "jit",
+  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class", // or 'media' or 'false'
   theme: {
     extend: {
       backgroundColor: {
         primaryA: "var(--color-lightGray)",
         primaryB: "var(--color-blackish)",
-        colorAccent: "var(--color-accent)"
+        colorAccent: "var(--color-accent)",
       },
       textColor: {
         primaryA: "var(--color-lightGray)",
         primaryB: "var(--color-blackish)",
-        colorAccent: "var(--color-accent)"
+        colorAccent: "var(--color-accent)",
       },
       height: {
-        fullscreen: "75vh" // not 100 to make next element visible in viewport
+        fullscreen: "75vh", // not 100 to make next element visible in viewport
       },
       width: {
-        xxxl: "800px"
+        xxxl: "800px",
       },
       letterSpacing: {
         p: "0.08em",
@@ -39,6 +39,8 @@ module.exports = {
               lineHeight: "36px",
               marginBottom: "8px",
               color: "var(--color-accent)",
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
             },
             h3: {
               fontSize: "24px",
@@ -55,7 +57,7 @@ module.exports = {
             },
             thead: {
               borderColor: "transparent",
-              display: "none"
+              display: "none",
             },
             tr: {
               borderWidth: "0 !important",
@@ -63,9 +65,13 @@ module.exports = {
               lineHeight: "20px",
             },
             td: {
-              py: 0
-            }
-          }
+              py: 0,
+            },
+            img: {
+              width: "250px",
+              margin: "16px",
+            },
+          },
         },
         sm: {
           css: {
@@ -79,7 +85,11 @@ module.exports = {
               marginBottom: "0px",
             },
             h2: {
-              fontSize: "20px"
+              fontSize: "20px",
+            },
+            img: {
+              width: "250px",
+              margin: "60px auto",
             },
           },
         },
@@ -87,18 +97,18 @@ module.exports = {
           css: {
             p: {
               fontWeight: "normal",
-              fontSize: "20px",
-              lineHeight: "32px",
+              fontSize: "16px",
+              lineHeight: "28px",
               letterSpacing: "0.08em",
             },
             h1: {
               marginBottom: "1rem",
             },
             h2: {
-              fontSize: "24px"
+              fontSize: "24px",
             },
             tr: {
-              fontSize: "20px",
+              fontSize: "16px",
               lineHeight: "32px",
             },
           },
@@ -111,9 +121,9 @@ module.exports = {
               lineHeight: "18px",
             },
             strong: {
-              fontWeight: 600
-            }
-          }
+              fontWeight: 600,
+            },
+          },
         },
         tightMd: {
           css: {
@@ -123,36 +133,55 @@ module.exports = {
               lineHeight: "24px",
             },
             strong: {
-              fontWeight: 600
-            }
-          }
+              fontWeight: 600,
+            },
+          },
         },
         dark: {
           css: {
-            DEFAULT: {
+            p: {
+              fontWeight: "normal",
+              fontSize: "14px",
+              lineHeight: "20px",
+              letterSpacing: "0.08em",
               textColor: "var(--color-primaryB)",
             },
-            sm: {
-              textColor: "var(--color-primaryB)",
+            h2: {
+              fontSize: "20px",
+              fontWeight: "500",
+              lineHeight: "36px",
+              textTransform: "uppercase",
+              color: "var(--color-primaryB)",
+              letterSpacing: "0.15em",
             },
-            md: {
-              textColor: "var(--color-primaryB)",
-            },
-            lg: {
-              textColor: "var(--color-primaryB)",
-            }
-          }
+          },
         },
-      }
+        darkMd: {
+          css: {
+            p: {
+              fontWeight: "normal",
+              fontSize: "14px",
+              lineHeight: "20px",
+              letterSpacing: "0.08em",
+              textColor: "var(--color-primaryB)",
+            },
+            h2: {
+              fontSize: "24px",
+              fontWeight: "500",
+              lineHeight: "36px",
+              textTransform: "uppercase",
+              color: "var(--color-primaryB)",
+            },
+          },
+        },
+      },
     },
     fontFamily: {
-      body: ['Lato', 'Helvetica', 'Arial', 'sans-serif'],
+      body: ["Lato", "Helvetica", "Arial", "sans-serif"],
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
+  plugins: [require("@tailwindcss/typography")],
+};
