@@ -1,14 +1,14 @@
-import { getLocalizedPage, localizePath } from "../utils/localize";
+import { getLocalizedPage, localizePath } from "../../utils/localize";
 import { useEffect, useRef, useState } from "react";
 
 // @ts-ignore
 import Cookies from "js-cookie";
 import Link from "next/link";
 import { MdExpandMore } from "react-icons/md";
-import { NextPageContextWithStrapi } from "../utils/types";
+import { NextPageContextWithStrapi } from "../../utils/types";
 import PropTypes from "prop-types";
-import WorldIcon from "./icons/world";
-import { useOnClickOutside } from "../utils/hooks";
+import WorldIcon from "../icons/world";
+import { useOnClickOutside } from "../../utils/hooks";
 import { useRouter } from "next/router";
 
 const LocaleSwitch = ({

@@ -1,16 +1,15 @@
-import BottomActions from "../components/sections/bottom-actions";
-import { BreadCrumbs } from "./breadcrumbs";
-import FeatureColumnsGroup from "../components/sections/feature-columns-group";
-import FeatureRowsGroup from "../components/sections/feature-rows-group";
-import Form from "./sections/form";
-import { Gallery } from "./sections/gallery";
-import Hero from "../components/sections/hero";
-import ImageSection from "./sections/image";
-import { ImagesPanel } from "./sections/images-panel";
-import LargeVideo from "../components/sections/large-video";
-import { PageContentSectionsDynamicZone } from "../utils/@types/strapi";
-import RichText from "./sections/rich-text";
-import TestimonialsGroup from "../components/sections/testimonials-group";
+import BottomActions from "./bottom-actions";
+import { BreadCrumbs } from "../elements/breadcrumbs";
+import FeatureColumnsGroup from "./feature-columns-group";
+import FeatureRowsGroup from "./feature-rows-group";
+import Form from "./form";
+import { Gallery } from "./gallery";
+import Hero from "./hero";
+import ImageSection from "./image";
+import { ImagesPanel } from "./images-panel";
+import LargeVideo from "./large-video";
+import { PageContentSectionsDynamicZone } from "../../utils/@types/strapi";
+import RichText from "./rich-text";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 
@@ -21,7 +20,6 @@ const sectionComponents = {
   "sections.feature-columns-group": FeatureColumnsGroup,
   "sections.feature-rows-group": FeatureRowsGroup,
   "sections.bottom-actions": BottomActions,
-  "sections.testimonials-group": TestimonialsGroup,
   "sections.rich-text": RichText,
   "sections.form": Form,
   "sections.image": ImageSection,
@@ -29,9 +27,13 @@ const sectionComponents = {
   "sections.images-panel": ImagesPanel,
 };
 
+type SectionProps = {
+  sectionData: PageContentSectionsDynamicZone;
+  pageColor?: string;
+};
+
 // Display a section individually
-// @ts-ignore
-const Section = ({ sectionData, pageColor }) => {
+const Section = ({ sectionData, pageColor }: SectionProps) => {
   // Prepare the component
   // @ts-ignore
   const SectionComponent = sectionComponents[sectionData.__component];
@@ -76,7 +78,7 @@ type SectionsProps = {
 const layoutStyles = {
   common: "grid justify-center",
   vertical: "flex flex-col items-center content-center space-y-10",
-  horizontal: "grid-cols-1 md:grid-cols-2 gap-x-12 px-4 md:px:0",
+  horizontal: "grid-cols-1 md:grid-cols-2 gap-x-14 px-4 md:px:0",
 };
 
 const Sections = ({
@@ -90,13 +92,13 @@ const Sections = ({
 
   return (
     <main>
-      <BreadCrumbs />
+      {/* Show a banner if preview mode is on */}
       <div
         className={classNames(layoutStyles.common, layoutStyles[layout], {
           "h-full": fullscreen,
         })}
       >
-        {/* Show a banner if preview mode is on */}
+        <BreadCrumbs />
         {preview && <PreviewModeBanner />}
         {/* Show the actual sections */}
         {sections.map((section) => (

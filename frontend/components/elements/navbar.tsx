@@ -53,7 +53,11 @@ const Navbar = ({ navbar, logo, logoDark, configuration }: NavBarProps) => {
                   {navLink && (
                     <CustomLink link={navLink}>
                       <div
-                        className={classNames("text-lg md:text-2xl uppercase", {
+                        className={classNames("text-lg md:text-xl uppercase", {
+                          "hover:text-gray-200":
+                            configuration.pageColor === "dark",
+                          "hover:text-gray-500":
+                            configuration.pageColor === "light",
                           "font-bold":
                             // @ts-ignore
                             navPath === navLink?.url.slice(1) ||

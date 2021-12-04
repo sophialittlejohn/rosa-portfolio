@@ -17,7 +17,7 @@ const Footer = ({ footer, configuration }: FooterProps) => {
             prose: configuration.pageColor === "light",
           })}
         >
-          <div className="text-lg font-regular md:text-2xl">{footer.text}</div>
+          <div className="text-lg font-regular md:text-xl">{footer.text}</div>
           <div className="font-thin text-sm md:text-lg ">{footer.subtext}</div>
         </div>
       </CustomLink>

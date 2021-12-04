@@ -1,4 +1,4 @@
-import CustomLink from "./elements/custom-link";
+import CustomLink from "./custom-link";
 import classNames from "classnames";
 import { useRouter } from "next/router";
 

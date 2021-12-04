@@ -9,7 +9,6 @@ type LayoutProps = {
 };
 
 const Layout: React.FC<LayoutProps> = ({ children, global, configuration }) => {
-  // @ts-ignore
   const { navbar, footer, logo, logoDark } = global;
 
   return (
