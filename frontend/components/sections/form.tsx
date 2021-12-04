@@ -59,9 +59,8 @@ const Form = ({ data }: FormProps) => {
 
   const onSubmit = async (
     values: Record<string, any>,
-    { setSubmitting, setErrors, resetForm, ...rest }: any
+    { setSubmitting, setErrors, resetForm }: any
   ) => {
-    console.log("🚀  ~ rest", values);
     setLoading(true);
 
     try {
@@ -73,7 +72,6 @@ const Form = ({ data }: FormProps) => {
       setSubmitSuccessful(true);
       resetForm();
     } catch (err: any) {
-      console.log("Cathcing", err);
       setErrors({ api: err.message });
     }
 
