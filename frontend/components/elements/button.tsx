@@ -37,7 +37,7 @@ const Button = ({
           "flex w-full justify-center lg:w-auto text-center uppercase tracking-wide font-semibold text-base md:text-sm py-2 disabled:cursor-not-allowed"
         )}
       >
-        {loading ? <Loader /> : success ? <div>SUCEESS</div> : text}
+        {loading ? <Loader /> : success ? <div>SUCCESS</div> : text}
       </div>
     </button>
   );
