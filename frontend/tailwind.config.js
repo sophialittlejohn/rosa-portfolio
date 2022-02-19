@@ -129,7 +129,7 @@ module.exports = {
           css: {
             p: {
               fontWeight: "normal",
-              fontSize: "18px",
+              fontSize: "16px",
               lineHeight: "24px",
             },
             strong: {
@@ -153,6 +153,9 @@ module.exports = {
               textTransform: "uppercase",
               color: "var(--color-primaryB)",
               letterSpacing: "0.15em",
+            },
+            img: {
+              margin: "24px 0",
             },
           },
         },
