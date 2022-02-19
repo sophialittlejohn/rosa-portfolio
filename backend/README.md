@@ -1,6 +1,6 @@
 # Deployment
 
-Backend is deployed on Heruko.
+Backend is deployed on Heroku.
 
 App name: [rosa-cms](https://dashboard.heroku.com/apps/rosa-cms/)
 
