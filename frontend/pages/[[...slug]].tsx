@@ -131,6 +131,7 @@ export async function getStaticProps(context: NextPageContextWithStrapi) {
         localizedPaths,
       },
     },
+    revalidate: 10,
   };
 }
 
